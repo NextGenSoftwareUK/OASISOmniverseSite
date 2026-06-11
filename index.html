@@ -123,6 +123,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);
 .protocol-num{font-family:'Orbitron',sans-serif;font-size:14px;color:var(--cyan);letter-spacing:.12em}
 .protocol-title{font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:.1em;color:var(--cyan);margin-bottom:5px}
 .protocol-text{font-size:13px;color:var(--text-dim);line-height:1.6}
+.infra-stats{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1.5rem}
+.infra-stat{border:1px solid rgba(0,229,255,.15);border-radius:8px;padding:.9rem 1rem;background:rgba(0,229,255,.04)}
+.infra-stat-num{font-size:1.6rem;font-weight:700;color:var(--cyan);letter-spacing:.02em;line-height:1}
+.infra-stat-label{font-size:.65rem;letter-spacing:.1em;opacity:.55;margin-top:.3rem;text-transform:uppercase}
 .provider-group{margin-bottom:18px}
 .provider-group-label{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.22em;color:var(--text-dim);margin-bottom:8px}
 .provider-pills{display:flex;flex-wrap:wrap;gap:6px}
@@ -469,7 +473,7 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
   <div class="protocol-grid">
     <div class="protocol-panel">
       <div class="protocol-kicker">ONE API / ALL PROVIDERS</div>
-      <div class="protocol-heading">40+ integrations. One universal layer.</div>
+      <div class="protocol-heading">50+ integrations. One universal layer.</div>
       <p class="protocol-copy">OASIS routes data, identity and assets across <strong>blockchains, storage networks, cloud providers and Web2 databases</strong> through a single HyperDrive abstraction. Switch providers without changing a line of application code.</p>
       <div class="provider-group">
         <div class="provider-group-label">CORE</div>
@@ -543,30 +547,31 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
           <span class="provider-pill">Vanilla JS</span>
         </div>
       </div>
+      <div class="infra-stats" style="margin-top:28px">
+        <div class="infra-stat"><div class="infra-stat-num">500+</div><div class="infra-stat-label">API Endpoints</div></div>
+        <div class="infra-stat"><div class="infra-stat-num">50+</div><div class="infra-stat-label">Web2 + Web3 Providers</div></div>
+        <div class="infra-stat"><div class="infra-stat-num">256K+</div><div class="infra-stat-label">NuGet Downloads</div></div>
+        <div class="infra-stat"><div class="infra-stat-num">50</div><div class="infra-stat-label">NuGet Packages</div></div>
+        <div class="infra-stat"><div class="infra-stat-num">10yr</div><div class="infra-stat-label">In Development</div></div>
+        <div class="infra-stat"><div class="infra-stat-num">4M+</div><div class="infra-stat-label">Lines Of Code</div></div>
+        <div class="infra-stat"><div class="infra-stat-num">170</div><div class="infra-stat-label">Founder Slots Ever</div></div>
+        <div class="infra-stat"><div class="infra-stat-num">555+</div><div class="infra-stat-label">STAR CLI Commands</div></div>
+      </div>
     </div>
     <div class="protocol-panel">
       <div class="protocol-kicker">HOW IT WORKS</div>
       <div class="protocol-list">
-        <div class="protocol-point">
-          <div class="protocol-num">01</div>
-          <div><div class="protocol-title">AVATAR LAYER</div><div class="protocol-text">A universal identity with karma, wallet and permissions — portable across every OASIS-connected experience and provider.</div></div>
-        </div>
-        <div class="protocol-point">
-          <div class="protocol-num">02</div>
-          <div><div class="protocol-title">HYPERDRIVE ROUTING</div><div class="protocol-text">Provider-agnostic data routing. Auto-replication, migration and failover across Web2 and Web3 backends transparently.</div></div>
-        </div>
-        <div class="protocol-point">
-          <div class="protocol-num">03</div>
-          <div><div class="protocol-title">STAR OAPPS</div><div class="protocol-text">Applications published via the STAR CLI run natively across the omniverse — no platform lock-in, ever.</div></div>
-        </div>
-        <div class="protocol-point">
-          <div class="protocol-num">04</div>
-          <div><div class="protocol-title">OGENGINE RUNTIME</div><div class="protocol-text">Shared game state, inventory, quests and karma propagate in real-time across all connected metaverses.</div></div>
-        </div>
-        <div class="protocol-point">
-          <div class="protocol-num">05</div>
-          <div><div class="protocol-title">STARNET PUBLISH</div><div class="protocol-text">Deploy OAPPs and holons to StarNet for instant distribution across the entire OASIS ecosystem.</div></div>
-        </div>
+        <div class="protocol-point"><div class="protocol-num">01</div><div><div class="protocol-title">HOLONIC DATA</div><div class="protocol-text">Identity-first data objects persist across providers instead of being locked to one chain, database or app.</div></div></div>
+        <div class="protocol-point"><div class="protocol-num">02</div><div><div class="protocol-title">HYPERDRIVE ROUTING</div><div class="protocol-text">Auto-failover, auto-replication, load balancing and provider selection route operations across the strongest available path.</div></div></div>
+        <div class="protocol-point"><div class="protocol-num">03</div><div><div class="protocol-title">STAR CREATION LAYER</div><div class="protocol-text">Builders can create OAPPs, quests, missions, NFTs, GeoNFTs, runtimes and templates for the OASIS Omniverse.</div></div></div>
+        <div class="protocol-point"><div class="protocol-num">04</div><div><div class="protocol-title">COSMIC ORM</div><div class="protocol-text">A single data abstraction layer targets Web2 databases, Web3 chains, files, cloud, IPFS and local storage without rewrites.</div></div></div>
+        <div class="protocol-point"><div class="protocol-num">05</div><div><div class="protocol-title">STARNET APP/ASSET STORE</div><div class="protocol-text">The STAR API &amp; STAR CLI/ODK includes the STARNET App/Asset store — publish, search, download, install and version-control apps &amp; assets with advanced sandbox and side-by-side versioning.</div></div></div>
+        <div class="protocol-point"><div class="protocol-num">06</div><div><div class="protocol-title">SMART BRICKS</div><div class="protocol-text">Web5 STARNET Holons wrap Web4 Holons, plugged together like lego into infinitely nestable components — Geo-NFTs, NFTs, OAPPs, Runtimes, Plugins, Zomes, Geo-HotSpots, Celestial Bodies and more.</div></div></div>
+        <div class="protocol-point"><div class="protocol-num">07</div><div><div class="protocol-title">UNIVERSAL IDENTITY &amp; AVATAR</div><div class="protocol-text">A single decentralised DID and avatar travels across every OAPP, chain and platform. Karma, inventory and progression are unified — log in once, carry everything everywhere.</div></div></div>
+        <div class="protocol-point"><div class="protocol-num">08</div><div><div class="protocol-title">CROSS-CHAIN NFT STANDARD</div><div class="protocol-text">OASIS NFTs wrap tokens from multiple chains under one universal standard. Geo-NFTs can be pinned to real-world locations for AR/VR experiences — managed from a single dashboard.</div></div></div>
+        <div class="protocol-point"><div class="protocol-num">09</div><div><div class="protocol-title">ONET DECENTRALISED NETWORK</div><div class="protocol-text">A self-organising P2P networking layer with multi-protocol discovery, Dijkstra/A* routing, distributed consensus and quantum-resistant encryption — architecturally impossible to shut down.</div></div></div>
+        <div class="protocol-point"><div class="protocol-num">10</div><div><div class="protocol-title">UNIVERSAL WALLET</div><div class="protocol-text">One dashboard spans 50+ blockchain networks with real-time portfolio aggregation, one-click cross-chain transfers, DeFi protocol integration and seamless fiat on/off ramps.</div></div></div>
+        <div class="protocol-point"><div class="protocol-num">11</div><div><div class="protocol-title">KARMA &amp; MULTI-TOKEN ECONOMY</div><div class="protocol-text">A universal reputation layer tracks contributions across all platforms and rewards them with HERZ utility tokens, CASA governance tokens and HoloFuel resource credits.</div></div></div>
       </div>
     </div>
   </div>
