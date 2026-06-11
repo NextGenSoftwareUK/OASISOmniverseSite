@@ -174,6 +174,15 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
 .footer-col a:hover{color:var(--cyan);filter:none}
 .footer-copy{font-size:12px;color:var(--text-dim);opacity:.4;margin-top:8px}
 
+/* ── LIGHTBOX ── */
+#lightbox{display:none;position:fixed;inset:0;z-index:2000;background:rgba(1,4,18,.97);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
+#lightbox.open{display:flex;animation:fadeIn .2s ease}
+#lightbox img{max-width:92vw;max-height:90vh;border-radius:12px;border:1px solid rgba(0,229,255,.2);box-shadow:0 0 80px rgba(0,229,255,.2);object-fit:contain;cursor:default}
+#lightbox-close{position:fixed;top:20px;right:24px;background:none;border:none;color:#fff;font-size:34px;cursor:pointer;opacity:.6;line-height:1;transition:opacity .2s}
+#lightbox-close:hover{opacity:1}
+.zoomable{cursor:zoom-in;transition:filter .3s,transform .3s}
+.zoomable:hover{filter:brightness(1.08) drop-shadow(0 0 16px rgba(0,229,255,.25));transform:scale(1.01)}
+
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   .nav-links{display:none}
@@ -327,7 +336,7 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
 <!-- ── OGENGINE IMAGE SECTION ── -->
 <section class="section" id="ogengine" style="background:rgba(255,255,255,.008)">
   <div class="img-split img-left">
-    <img src="img/ogengine.jpg" alt="OGEngine — Omniverse Game Runtime" loading="lazy">
+    <img src="img/ogengine.jpg" alt="OGEngine — Omniverse Game Runtime" loading="lazy" class="zoomable" onclick="openLightbox('img/ogengine.jpg')">
     <div class="img-split-text">
       <div class="section-kicker">OGENGINE · WEB5</div>
       <h3>Omniverse Game Runtime</h3>
@@ -373,7 +382,7 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
         <a href="https://api.starnet.oasisomniverse.one/swagger" class="doc-link">STARNET API →</a>
       </div>
     </div>
-    <img src="img/starnet.jpg" alt="StarNet — OASIS Omniverse App & Asset Store" loading="lazy">
+    <img src="img/starnet.jpg" alt="StarNet — OASIS Omniverse App & Asset Store" loading="lazy" class="zoomable" onclick="openLightbox('img/starnet.jpg')">
   </div>
 </section>
 
@@ -436,7 +445,7 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
 <!-- ── HOLONET / ECOSYSTEM IMAGE ── -->
 <section class="section" style="background:rgba(255,255,255,.008)">
   <div class="img-split img-left">
-    <img src="img/ECOSYSTEM.jpg" alt="OASIS Ecosystem" loading="lazy">
+    <img src="img/ECOSYSTEM.jpg" alt="OASIS Ecosystem" loading="lazy" class="zoomable" onclick="openLightbox('img/ECOSYSTEM.jpg')">
     <div class="img-split-text">
       <div class="section-kicker">THE BIG PICTURE</div>
       <h3>One Ecosystem. Infinite Worlds.</h3>
@@ -528,7 +537,7 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
   <span class="section-line"></span>
   <div class="ecosystem-grid">
     <div class="eco-card">
-      <img src="img/web5.jpg" class="eco-card-img" alt="Web5 StarNet" loading="lazy">
+      <img src="img/web5.jpg" class="eco-card-img zoomable" alt="Web5 StarNet" loading="lazy" onclick="openLightbox('img/web5.jpg')">
       <div class="eco-card-body">
         <div class="eco-card-kicker">WEB5 · APP STORE</div>
         <div class="eco-card-title">STARNET</div>
@@ -537,7 +546,7 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
       </div>
     </div>
     <div class="eco-card">
-      <img src="img/web4.jpg" class="eco-card-img" alt="OASIS Web4" loading="lazy">
+      <img src="img/web4.jpg" class="eco-card-img zoomable" alt="OASIS Web4" loading="lazy" onclick="openLightbox('img/web4.jpg')">
       <div class="eco-card-body">
         <div class="eco-card-kicker">WEB4 · FOUNDATION</div>
         <div class="eco-card-title">OASIS WEB4</div>
@@ -555,7 +564,7 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
       </div>
     </div>
     <div class="eco-card">
-      <img src="img/ogengine.jpg" class="eco-card-img" alt="OGEngine" loading="lazy">
+      <img src="img/ogengine.jpg" class="eco-card-img zoomable" alt="OGEngine" loading="lazy" onclick="openLightbox('img/ogengine.jpg')">
       <div class="eco-card-body">
         <div class="eco-card-kicker">WEB5 · GAME ENGINE</div>
         <div class="eco-card-title">OGENGINE</div>
@@ -573,7 +582,7 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
       </div>
     </div>
     <div class="eco-card founders-card">
-      <img src="img/ECOSYSTEM.jpg" class="eco-card-img" alt="OASIS Founders NFT" loading="lazy">
+      <img src="img/ECOSYSTEM.jpg" class="eco-card-img zoomable" alt="OASIS Founders NFT" loading="lazy" onclick="openLightbox('img/ECOSYSTEM.jpg')">
       <div class="eco-card-body">
         <div class="eco-card-kicker gold">FOUNDERS · NFT CAMPAIGN</div>
         <div class="eco-card-title">BECOME A FOUNDER</div>
@@ -682,7 +691,37 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
 
 </div><!-- /wrap -->
 
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="">
+  <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+</div>
+
 <script>
+// Open all external links in a new tab
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href');
+    if(href && (href.startsWith('http://') || href.startsWith('https://'))){
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+});
+
+// Lightbox
+function openLightbox(src){
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightboxImg').src = src;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
+
 // Stars canvas
 (function(){
   const canvas = document.getElementById('stars-canvas');
