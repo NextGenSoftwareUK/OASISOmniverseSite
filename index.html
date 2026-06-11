@@ -133,7 +133,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);
 .provider-pill{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--text);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:5px 10px;background:rgba(255,255,255,.03)}
 
 /* ── ECOSYSTEM CARDS ── */
-.ecosystem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.ecosystem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:24px;max-width:1100px;margin:0 auto}
 .eco-card{background:var(--bg-card);border:1px solid rgba(0,229,255,.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s,border-color .3s;will-change:transform}
 .eco-card:hover{transform:translateY(-7px);box-shadow:0 20px 60px rgba(0,229,255,.1);border-color:rgba(0,229,255,.3)}
 .eco-card.founders-card{border-color:rgba(240,165,0,.25);box-shadow:0 0 30px rgba(240,165,0,.07)}
@@ -706,6 +706,35 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
         <a href="https://ourworldthegame.com" class="eco-card-link">EXPLORE OUR WORLD →</a>
       </div>
     </div>
+    <div class="eco-card">
+      <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#050212,#0a0520);gap:14px">
+        <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="42.6,18 27,9 11.4,18 11.4,36 27,45 42.6,36" stroke="#00e5ff" stroke-width="1.2" fill="none"/>
+          <polygon points="34.8,22.5 27,18 19.2,22.5 19.2,31.5 27,36 34.8,31.5" stroke="#00e5ff" stroke-width="0.6" fill="none" opacity="0.4"/>
+          <line x1="27" y1="27" x2="42.6" y2="18" stroke="#00e5ff" stroke-width="0.5" opacity="0.3"/>
+          <line x1="27" y1="27" x2="27" y2="9" stroke="#00e5ff" stroke-width="0.5" opacity="0.3"/>
+          <line x1="27" y1="27" x2="11.4" y2="18" stroke="#00e5ff" stroke-width="0.5" opacity="0.3"/>
+          <line x1="27" y1="27" x2="11.4" y2="36" stroke="#00e5ff" stroke-width="0.5" opacity="0.3"/>
+          <line x1="27" y1="27" x2="27" y2="45" stroke="#00e5ff" stroke-width="0.5" opacity="0.3"/>
+          <line x1="27" y1="27" x2="42.6" y2="36" stroke="#00e5ff" stroke-width="0.5" opacity="0.3"/>
+          <circle cx="27" cy="27" r="3" fill="#00e5ff"/>
+          <circle cx="42.6" cy="18" r="1.8" fill="#00e5ff" opacity="0.7"/>
+          <circle cx="27" cy="9" r="1.8" fill="#00e5ff" opacity="0.7"/>
+          <circle cx="11.4" cy="18" r="1.8" fill="#00e5ff" opacity="0.7"/>
+          <circle cx="11.4" cy="36" r="1.8" fill="#00e5ff" opacity="0.7"/>
+          <circle cx="27" cy="45" r="1.8" fill="#00e5ff" opacity="0.7"/>
+          <circle cx="42.6" cy="36" r="1.8" fill="#00e5ff" opacity="0.7"/>
+        </svg>
+        <div style="font-family:'Orbitron',sans-serif;font-size:15px;font-weight:700;letter-spacing:.15em;color:#00e5ff;text-shadow:0 0 18px rgba(0,229,255,.5)">HOLONET</div>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em;color:#00e5ff;opacity:0.75">HOLOCHAIN</div>
+      </div>
+      <div class="eco-card-body">
+        <div class="eco-card-kicker">WEB5 · HOLOCHAIN</div>
+        <div class="eco-card-title">HOLONET</div>
+        <div class="eco-card-desc">The OASIS Holochain integration layer. HoloNET Client, ORM, API and Manager — connect any .NET application to the Holochain peer-to-peer network.</div>
+        <a href="https://github.com/holochain-open-dev/holochain-client-csharp" class="eco-card-link">VIEW ON GITHUB →</a>
+      </div>
+    </div>
     <div class="eco-card founders-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#080500,#120a00);gap:13px">
         <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -789,7 +818,7 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
     <div class="feature-item">
       <span class="feature-icon">📦</span>
       <div class="feature-title">NUGET PACKAGES</div>
-      <div class="feature-desc">50+ NuGet packages — integrate OASIS identity, karma, NFTs, COSMIC ORM and HyperDrive directly into any .NET application.</div>
+      <div class="feature-desc">50+ NuGet packages — integrate OASIS identity, karma, NFTs, data, COSMIC ORM, HyperDrive & HoloNET directly into any .NET application.</div>
       <a href="https://www.nuget.org/profiles/dellams" class="feature-link">BROWSE PACKAGES →</a>
     </div>
     <div class="feature-item">
