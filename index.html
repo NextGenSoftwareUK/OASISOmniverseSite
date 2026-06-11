@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='100' fill='%230d1117'/><circle cx='50' cy='50' r='32' fill='none' stroke='%2300e5ff' stroke-width='8'/><circle cx='50' cy='50' r='20' fill='none' stroke='%2300e5ff' stroke-width='8'/><ellipse cx='50' cy='50' rx='44' ry='13' transform='rotate(-30 50 50)' fill='none' stroke='%2300e5ff' stroke-width='4'/><circle cx='88' cy='28' r='5' fill='%2300e5ff'/></svg>">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OASIS Omniverse — The Web4 + Web5 Ecosystem</title>
+<meta name="description" content="OASIS Omniverse — the unified Web4 identity and data layer powering Web5 metaverses, games, OAPPs and the StarNet ecosystem.">
+<meta property="og:title" content="OASIS Omniverse — The Web4 + Web5 Ecosystem">
+<meta property="og:description" content="Where identity meets the metaverse. Where data becomes experience. One universal layer connecting Web2, Web3 and Web5.">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#f0a500;--gold-light:#ffd166;
+  --cyan:#00e5ff;--purple:#7c3aed;
+  --bg-deep:#030714;--bg-card:#0a1535;--bg-card2:#071028;
+  --text:#d0e4ff;--text-dim:#6a80a8;
+  --green:#00cc44;
+  --heading:#ffffff;
+  --heading-sub:rgba(255,255,255,0.65);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg-deep);color:var(--text);font-family:'Rajdhani',sans-serif;overflow-x:hidden;min-height:100vh}
+#stars-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.08) 2px,rgba(0,0,0,.08) 4px);pointer-events:none;z-index:1}
+.wrap{position:relative;z-index:2}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,229,255,.1);padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--cyan);text-decoration:none;display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:28px;height:28px}
+.nav-logo span{color:rgba(255,255,255,.45);font-weight:400}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--text-dim);text-decoration:none;transition:color .2s,filter .2s}
+.nav-links a:hover{color:var(--cyan);filter:drop-shadow(0 0 6px rgba(0,229,255,.6))}
+.nav-cta{font-family:'Orbitron',sans-serif!important;font-size:11px!important;font-weight:700!important;letter-spacing:.12em!important;color:var(--bg-deep)!important;background:var(--cyan);padding:9px 18px;border-radius:6px;transition:box-shadow .2s,transform .2s,filter .2s!important}
+.nav-cta:hover{box-shadow:0 0 24px rgba(0,229,255,.5);transform:translateY(-1px);filter:none!important}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--cyan);border-radius:2px;transition:transform .3s}
+
+/* ── ANIMATIONS ── */
+@keyframes ringPulse{0%,100%{box-shadow:0 0 30px rgba(0,229,255,.4),inset 0 0 20px rgba(0,229,255,.1)}50%{box-shadow:0 0 60px rgba(0,229,255,.7),inset 0 0 30px rgba(0,229,255,.2)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spinCW{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes spinCCW{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+@keyframes titleGlow{
+  0%,100%{filter:drop-shadow(0 0 18px rgba(0,229,255,.5)) drop-shadow(0 0 40px rgba(0,229,255,.2))}
+  50%{filter:drop-shadow(0 0 35px rgba(0,229,255,.9)) drop-shadow(0 0 80px rgba(0,229,255,.4)) drop-shadow(0 0 120px rgba(0,229,255,.15))}
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 20px 60px;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,229,255,.08) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(124,58,237,.12) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 20% 60%,rgba(0,229,255,.04) 0%,transparent 60%)}
+.logo-ring{width:100px;height:100px;border-radius:50%;border:2px solid var(--cyan);margin-bottom:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(0,229,255,.4),inset 0 0 20px rgba(0,229,255,.1);animation:ringPulse 3s ease-in-out infinite,float 6s ease-in-out infinite;position:relative}
+.logo-ring::before{content:'';position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(0,229,255,.2);animation:ringPulse 3s ease-in-out infinite reverse}
+.logo-ring svg{width:58px;height:58px}
+.hero-eyebrow{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.35em;color:var(--cyan);margin-bottom:18px;animation:fadeUp .8s ease both}
+.hero-title{font-family:'Orbitron',sans-serif;font-size:clamp(50px,10vw,110px);font-weight:900;letter-spacing:.12em;line-height:1;background:linear-gradient(180deg,#ffffff 0%,var(--cyan) 60%,rgba(0,180,220,.8) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px;animation:fadeUp .8s ease both,titleGlow 3s ease-in-out infinite}
+.hero-title-sub{font-family:'Orbitron',sans-serif;font-size:clamp(16px,3.5vw,34px);font-weight:400;letter-spacing:.28em;color:rgba(255,255,255,.3);margin-bottom:32px;animation:fadeUp .8s .1s ease both}
+.hero-desc{font-size:clamp(16px,2vw,21px);color:var(--text);max-width:760px;line-height:1.75;animation:fadeUp .8s .2s ease both;margin-bottom:10px}
+.hero-desc strong{color:#ffffff}
+.hero-tagline{font-size:15px;color:var(--text-dim);animation:fadeUp .8s .3s ease both;margin-bottom:40px;letter-spacing:.03em;max-width:640px}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;animation:fadeUp .8s .4s ease both;margin-bottom:52px}
+.btn-primary{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;padding:15px 30px;background:linear-gradient(135deg,#006d8a,var(--cyan));color:#000d14;border-radius:8px;text-decoration:none;transition:box-shadow .25s,transform .2s;display:inline-block}
+.btn-primary:hover{box-shadow:0 0 32px rgba(0,229,255,.55);transform:translateY(-2px);filter:none}
+.btn-secondary{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:600;letter-spacing:.12em;padding:15px 30px;border:1px solid rgba(0,229,255,.4);color:var(--cyan);border-radius:8px;text-decoration:none;background:rgba(0,229,255,.05);transition:background .2s,border-color .2s,transform .2s;display:inline-block}
+.btn-secondary:hover{background:rgba(0,229,255,.12);border-color:rgba(0,229,255,.7);transform:translateY(-2px);filter:none}
+.hero-badge-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;animation:fadeUp .8s .5s ease both}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.15);border-radius:24px;padding:7px 16px;font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text-dim);letter-spacing:.08em}
+
+/* ── STATS BAND ── */
+.stats-band{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:rgba(0,229,255,.08);border:1px solid rgba(0,229,255,.1);border-radius:16px;overflow:hidden;max-width:900px;margin:0 auto}
+.stat-item{padding:32px 20px;text-align:center;background:var(--bg-deep)}
+.stat-val{font-family:'Orbitron',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:900;color:var(--cyan);margin-bottom:6px;letter-spacing:.05em}
+.stat-label{font-size:11px;letter-spacing:.18em;color:var(--text-dim);font-family:'Share Tech Mono',monospace;line-height:1.5}
+
+/* ── SECTIONS ── */
+.section{padding:80px 20px;position:relative}
+.section-kicker{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.25em;color:var(--cyan);text-align:center;margin-bottom:10px}
+.section-title{font-family:'Orbitron',sans-serif;font-size:clamp(22px,4vw,36px);font-weight:700;letter-spacing:.1em;text-align:center;color:var(--heading);margin-bottom:12px}
+.section-line{display:block;width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);margin:0 auto 50px}
+.section-sub{font-size:16px;color:var(--text-dim);text-align:center;max-width:680px;margin:0 auto 50px;line-height:1.75}
+.section-sub strong{color:var(--text)}
+
+/* ── FEATURE GRID ── */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.feature-item{background:var(--bg-card);border:1px solid rgba(0,229,255,.1);border-radius:12px;padding:28px 22px;text-align:center;transition:transform .3s,border-color .3s,box-shadow .3s,filter .3s}
+.feature-item:hover{transform:translateY(-5px);border-color:rgba(0,229,255,.3);box-shadow:0 12px 40px rgba(0,229,255,.08);filter:drop-shadow(0 0 12px rgba(0,229,255,.12))}
+.feature-icon{font-size:36px;margin-bottom:14px;display:block}
+.feature-title{font-family:'Orbitron',sans-serif;font-size:13px;letter-spacing:.1em;color:var(--cyan);margin-bottom:10px}
+.feature-desc{font-size:14px;color:var(--text-dim);line-height:1.65}
+.feature-link{display:inline-block;margin-top:14px;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--cyan);border:1px solid rgba(0,229,255,.22);border-radius:999px;padding:7px 14px;transition:background .2s,border-color .2s}
+.feature-link:hover{background:rgba(0,229,255,.1);border-color:rgba(0,229,255,.45);filter:none}
+
+/* ── IMAGE SECTIONS ── */
+.img-split{display:grid;gap:40px;max-width:1060px;margin:0 auto;align-items:center}
+.img-split.img-left{grid-template-columns:1fr 1fr}
+.img-split.img-right{grid-template-columns:1fr 1fr}
+.img-split img{width:100%;border-radius:14px;border:1px solid rgba(0,229,255,.12);box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.img-split-text{}
+.img-split-text .section-kicker{text-align:left;margin-bottom:10px}
+.img-split-text h3{font-family:'Orbitron',sans-serif;font-size:clamp(18px,2.5vw,26px);color:var(--heading);margin-bottom:16px;letter-spacing:.06em;line-height:1.3}
+.img-split-text p{font-size:15px;color:var(--text-dim);line-height:1.8;margin-bottom:14px}
+.img-split-text p strong{color:var(--text)}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pill{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.07em;color:var(--text);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 12px;background:rgba(255,255,255,.04)}
+.pill.cyan{color:var(--cyan);border-color:rgba(0,229,255,.25);background:rgba(0,229,255,.05)}
+.pill.gold{color:var(--gold);border-color:rgba(240,165,0,.25);background:rgba(240,165,0,.05)}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+
+/* ── PROVIDER / PROTOCOL ── */
+.protocol-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr);gap:28px;max-width:1060px;margin:0 auto;align-items:stretch}
+.protocol-panel{background:rgba(10,21,53,.85);border:1px solid rgba(0,229,255,.12);border-radius:14px;padding:32px 28px;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.protocol-kicker{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.22em;color:var(--cyan);margin-bottom:12px}
+.protocol-heading{font-family:'Orbitron',sans-serif;font-size:clamp(17px,2.5vw,24px);line-height:1.3;color:var(--heading);margin-bottom:14px;letter-spacing:.04em}
+.protocol-copy{font-size:15px;line-height:1.75;color:var(--text-dim);margin-bottom:22px}
+.protocol-copy strong{color:var(--heading)}
+.protocol-list{display:grid;gap:12px}
+.protocol-point{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;padding:14px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)}
+.protocol-num{font-family:'Orbitron',sans-serif;font-size:14px;color:var(--cyan);letter-spacing:.12em}
+.protocol-title{font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:.1em;color:var(--cyan);margin-bottom:5px}
+.protocol-text{font-size:13px;color:var(--text-dim);line-height:1.6}
+.provider-group{margin-bottom:18px}
+.provider-group-label{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.22em;color:var(--text-dim);margin-bottom:8px}
+.provider-pills{display:flex;flex-wrap:wrap;gap:6px}
+.provider-pill{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--text);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:5px 10px;background:rgba(255,255,255,.03)}
+
+/* ── ECOSYSTEM CARDS ── */
+.ecosystem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.eco-card{background:var(--bg-card);border:1px solid rgba(0,229,255,.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s,border-color .3s}
+.eco-card:hover{transform:translateY(-7px);box-shadow:0 20px 60px rgba(0,229,255,.1);border-color:rgba(0,229,255,.3)}
+.eco-card.founders-card{border-color:rgba(240,165,0,.25);box-shadow:0 0 30px rgba(240,165,0,.07)}
+.eco-card.founders-card:hover{box-shadow:0 20px 60px rgba(240,165,0,.18);border-color:rgba(240,165,0,.45)}
+.eco-card-img{width:100%;height:190px;object-fit:cover;display:block}
+.eco-card-placeholder{width:100%;height:190px;display:flex;align-items:center;justify-content:center;font-size:52px;background:linear-gradient(135deg,var(--bg-card2),var(--bg-card))}
+.eco-card-body{padding:26px;flex:1;display:flex;flex-direction:column}
+.eco-card-kicker{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.22em;color:var(--cyan);margin-bottom:8px}
+.eco-card-kicker.gold{color:var(--gold)}
+.eco-card-title{font-family:'Orbitron',sans-serif;font-size:17px;font-weight:700;letter-spacing:.07em;color:var(--heading);margin-bottom:12px}
+.eco-card-desc{font-size:14px;color:var(--text-dim);line-height:1.65;flex:1;margin-bottom:18px}
+.eco-card-link{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--cyan);text-decoration:none;border:1px solid rgba(0,229,255,.25);border-radius:999px;padding:9px 18px;text-align:center;transition:background .2s,border-color .2s,filter .2s}
+.eco-card-link:hover{background:rgba(0,229,255,.1);border-color:rgba(0,229,255,.5);filter:none}
+.eco-card-link.gold{color:var(--gold);border-color:rgba(240,165,0,.3)}
+.eco-card-link.gold:hover{background:rgba(240,165,0,.1);border-color:rgba(240,165,0,.55)}
+
+/* ── FOUNDERS CTA ── */
+.founders-band{max-width:840px;margin:0 auto;text-align:center;background:linear-gradient(135deg,rgba(240,165,0,.07),rgba(10,21,53,.96));border:1px solid rgba(240,165,0,.28);border-radius:20px;padding:64px 44px;box-shadow:0 0 80px rgba(240,165,0,.06)}
+.founders-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(240,165,0,.1);border:1px solid rgba(240,165,0,.3);border-radius:24px;padding:7px 20px;font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--gold);margin-bottom:24px;letter-spacing:.08em}
+.founders-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:blink 1.2s ease-in-out infinite;flex-shrink:0}
+.founders-band h2{font-family:'Orbitron',sans-serif;font-size:clamp(24px,4vw,40px);font-weight:900;letter-spacing:.1em;color:var(--gold);margin-bottom:18px;line-height:1.15}
+.founders-band p{font-size:17px;color:var(--text-dim);line-height:1.75;max-width:600px;margin:0 auto 16px}
+.founders-band p strong{color:var(--text)}
+.btn-gold{font-family:'Orbitron',sans-serif;font-size:14px;font-weight:700;letter-spacing:.14em;padding:17px 38px;background:linear-gradient(135deg,#b37800,var(--gold),#ffe066);color:#0a0500;border-radius:10px;text-decoration:none;transition:box-shadow .25s,transform .2s;display:inline-block;margin-top:12px}
+.btn-gold:hover{box-shadow:0 0 44px rgba(240,165,0,.55);transform:translateY(-2px);filter:none}
+
+/* ── DOC LINKS ── */
+a{color:var(--cyan);text-decoration:none;transition:filter .3s,color .3s}
+a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
+.doc-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:32px auto 0}
+.doc-link{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--cyan);text-decoration:none;border:1px solid rgba(0,229,255,.2);border-radius:999px;padding:9px 16px;background:rgba(0,229,255,.04);transition:background .2s,border-color .2s,transform .2s}
+.doc-link:hover{background:rgba(0,229,255,.11);border-color:rgba(0,229,255,.45);transform:translateY(-2px);filter:drop-shadow(0 0 6px rgba(0,229,255,.4))}
+
+/* ── FOOTER ── */
+.footer{border-top:1px solid rgba(0,229,255,.08);padding:52px 20px 36px;text-align:center;background:rgba(0,0,0,.35)}
+.footer-logo{font-family:'Orbitron',sans-serif;font-size:20px;font-weight:900;letter-spacing:.16em;color:var(--cyan);margin-bottom:6px}
+.footer-tagline{font-size:13px;color:var(--text-dim);letter-spacing:.07em;margin-bottom:32px;opacity:.7}
+.footer-cols{display:flex;justify-content:center;flex-wrap:wrap;gap:40px;margin-bottom:36px;text-align:left}
+.footer-col h4{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.22em;color:var(--cyan);margin-bottom:14px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col a{font-size:13px;color:var(--text-dim);transition:color .2s}
+.footer-col a:hover{color:var(--cyan);filter:none}
+.footer-copy{font-size:12px;color:var(--text-dim);opacity:.4;margin-top:8px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .img-split.img-left,.img-split.img-right{grid-template-columns:1fr}
+  .img-split.img-right .img-split-text{order:-1}
+  .protocol-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column;align-items:center}
+  .founders-band{padding:40px 24px}
+  .footer-cols{gap:24px}
+}
+@media(max-width:520px){
+  .hero-badge-row{gap:6px}
+  .hero-badge{font-size:9px;padding:6px 12px}
+  .stats-band{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<canvas id="stars-canvas"></canvas>
+<div class="wrap">
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="/">
+    <svg class="nav-logo-icon" viewBox="0 0 60 60" fill="none">
+      <circle cx="30" cy="30" r="4" fill="#fff" style="animation:pulse 2.5s ease-in-out infinite;transform-origin:30px 30px"/>
+      <circle cx="30" cy="30" r="14" stroke="rgba(255,255,255,.4)" stroke-width="1.5" style="animation:spinCCW 5s linear infinite;transform-origin:30px 30px"/>
+      <circle cx="30" cy="30" r="24" stroke="#00e5ff" stroke-width="2" style="animation:spinCW 8s linear infinite;transform-origin:30px 30px"/>
+      <g style="animation:spinCW 3s linear infinite;transform-origin:30px 30px"><circle cx="30" cy="6" r="2.5" fill="#00e5ff"/></g>
+    </svg>
+    OASIS <span>&nbsp;OMNIVERSE</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#web5">WEB5</a></li>
+    <li><a href="#web4">WEB4</a></li>
+    <li><a href="#ogengine">OGENGINE</a></li>
+    <li><a href="#ecosystem">ECOSYSTEM</a></li>
+    <li><a href="#developers">DEVELOPERS</a></li>
+    <li><a href="https://founders.oasisomniverse.one" class="nav-cta">FOUNDERS NFT</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="logo-ring">
+    <svg viewBox="0 0 60 60" fill="none">
+      <circle cx="30" cy="30" r="4" fill="#ffffff" style="animation:pulse 2.5s ease-in-out infinite;transform-origin:30px 30px"/>
+      <circle cx="30" cy="30" r="14" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" style="animation:spinCCW 5s linear infinite;transform-origin:30px 30px"/>
+      <circle cx="30" cy="30" r="24" stroke="#00e5ff" stroke-width="2" style="animation:spinCW 8s linear infinite;transform-origin:30px 30px"/>
+      <ellipse cx="30" cy="30" rx="28" ry="10" stroke="#00e5ff" stroke-width="1.2" stroke-dasharray="4 3" opacity="0.35" transform="rotate(-30 30 30)" style="animation:spinCW 12s linear infinite;transform-origin:30px 30px"/>
+      <g style="animation:spinCW 3s linear infinite;transform-origin:30px 30px"><circle cx="30" cy="6" r="3" fill="#00e5ff"/></g>
+      <g style="animation:spinCCW 7s linear infinite;transform-origin:30px 30px"><circle cx="30" cy="16" r="2" fill="rgba(255,255,255,0.6)"/></g>
+    </svg>
+  </div>
+  <div class="hero-eyebrow">THE UNIFIED WEB4 + WEB5 ECOSYSTEM</div>
+  <h1 class="hero-title">OASIS</h1>
+  <div class="hero-title-sub">OMNIVERSE</div>
+  <p class="hero-desc">Where <strong>identity meets the metaverse</strong>.<br>Where <strong>data becomes experience</strong>.</p>
+  <p class="hero-tagline">One universal layer connecting Web2, Web3 and Web5 — powering interoperable metaverses, shared quests, cross-chain assets and a new digital civilisation.</p>
+  <div class="hero-btns">
+    <a href="#web5" class="btn-primary">EXPLORE THE OMNIVERSE ↓</a>
+    <a href="https://founders.oasisomniverse.one" class="btn-secondary">BECOME A FOUNDER →</a>
+  </div>
+  <div class="hero-badge-row">
+    <div class="hero-badge">🌐 WEB4 IDENTITY LAYER</div>
+    <div class="hero-badge">🎮 WEB5 GAME ENGINE</div>
+    <div class="hero-badge">🌌 INTEROPERABLE METAVERSES</div>
+    <div class="hero-badge">⚡ 40+ PROVIDER INTEGRATIONS</div>
+    <div class="hero-badge">🏪 STARNET APP STORE</div>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<section class="section" style="padding-top:0;padding-bottom:64px">
+  <div class="stats-band">
+    <div class="stat-item">
+      <div class="stat-val">40+</div>
+      <div class="stat-label">PROVIDER<br>INTEGRATIONS</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">WEB4</div>
+      <div class="stat-label">IDENTITY · DATA<br>KARMA · NFTS</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">WEB5</div>
+      <div class="stat-label">GAMES · METAVERSES<br>OAPPS · STARNET</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">∞</div>
+      <div class="stat-label">CONNECTED<br>WORLDS</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-val">170</div>
+      <div class="stat-label">FOUNDER SLOTS<br>EVER</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WEB5 OVERVIEW ── -->
+<section class="section" id="web5" style="background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(124,58,237,.05) 0%,transparent 70%)">
+  <div class="section-kicker">WEB5 · THE EXPERIENCE LAYER</div>
+  <h2 class="section-title">THE OMNIVERSE</h2>
+  <span class="section-line"></span>
+  <p class="section-sub">OASIS Web5 is where the infrastructure becomes the world. <strong>Interoperable metaverses, shared quests, cross-game assets</strong> and a universal gamification layer that connects every world into one living ecosystem.</p>
+  <div class="features-grid">
+    <div class="feature-item">
+      <span class="feature-icon">🎮</span>
+      <div class="feature-title">OGENGINE</div>
+      <div class="feature-desc">The Omniverse Game Runtime connecting Our World, ODOOM, OQuake and any future metaverse through shared quests, inventory and karma.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🌍</span>
+      <div class="feature-title">OUR WORLD</div>
+      <div class="feature-desc">The flagship OASIS experience — a geo-located AR/VR game where real-world positive actions earn karma and shape the digital world around you.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">💀</span>
+      <div class="feature-title">ODOOM</div>
+      <div class="feature-desc">DOOM running inside the OASIS omniverse — STAR-connected, with cross-world karma, shared inventory and omniverse achievements.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🔫</span>
+      <div class="feature-title">OQUAKE</div>
+      <div class="feature-desc">Quake reimagined within the OASIS ecosystem, with STAR OAPPs, shared items and omniverse-native progression that carries across worlds.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🏪</span>
+      <div class="feature-title">STARNET</div>
+      <div class="feature-desc">The Web5 app and asset store — publish OAPPs, holons and digital assets that work seamlessly across every OASIS-connected world.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">⚡</span>
+      <div class="feature-title">STAR OAPPS</div>
+      <div class="feature-desc">Build cross-world applications from DNA templates using the STAR CLI/ODK. OAPPs run natively everywhere the OASIS layer exists.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🏆</span>
+      <div class="feature-title">SHARED QUESTS</div>
+      <div class="feature-desc">Quests, missions and achievements span all connected metaverses. Complete a mission in OQuake — earn karma in Our World.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🎒</span>
+      <div class="feature-title">UNIVERSAL INVENTORY</div>
+      <div class="feature-desc">Items, NFTs and digital assets earned in any OASIS world are fully portable across the entire omniverse ecosystem.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── OGENGINE IMAGE SECTION ── -->
+<section class="section" id="ogengine" style="background:rgba(255,255,255,.008)">
+  <div class="img-split img-left">
+    <img src="img/ogengine.jpg" alt="OGEngine — Omniverse Game Runtime" loading="lazy">
+    <div class="img-split-text">
+      <div class="section-kicker">OGENGINE · WEB5</div>
+      <h3>Omniverse Game Runtime</h3>
+      <p>OGEngine is the runtime that <strong>connects every OASIS world into a single interoperable omniverse</strong>. It provides shared state, inventory management, quest handling and karma propagation across all connected games and metaverses in real-time.</p>
+      <p>Build your own world, connect it to shared STAR quests, and give players real reasons to stay engaged across the whole ecosystem — not just one game.</p>
+      <div class="pill-row">
+        <span class="pill cyan">Our World</span>
+        <span class="pill cyan">ODOOM</span>
+        <span class="pill cyan">OQuake</span>
+        <span class="pill">Shared Quests</span>
+        <span class="pill">Cross-game Inventory</span>
+        <span class="pill">STAR OAPPs</span>
+        <span class="pill">Karma Engine</span>
+        <span class="pill">Real-time State Sync</span>
+      </div>
+      <div class="btn-row">
+        <a href="https://ourworldthegame.com" class="doc-link">OUR WORLD →</a>
+        <a href="https://github.com/NextGenSoftwareUK/OASIS" class="doc-link">GITHUB →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STARNET IMAGE SECTION ── -->
+<section class="section">
+  <div class="img-split img-right">
+    <div class="img-split-text">
+      <div class="section-kicker">STARNET · WEB5</div>
+      <h3>The Omniverse App & Asset Store</h3>
+      <p>StarNet is the <strong>publishing and distribution layer</strong> for the OASIS omniverse. Developers publish OAPPs and digital assets. Players discover, acquire and use them across every connected world — with no platform lock-in.</p>
+      <p>Holons are composable digital building blocks — reusable templates that accelerate creation and allow assets to flow freely throughout the ecosystem.</p>
+      <div class="pill-row">
+        <span class="pill cyan">OAPPs</span>
+        <span class="pill cyan">Holons</span>
+        <span class="pill">STAR CLI / ODK</span>
+        <span class="pill">DNA Templates</span>
+        <span class="pill">Digital Assets</span>
+        <span class="pill">Cross-world Items</span>
+        <span class="pill">Publish & Earn</span>
+      </div>
+      <div class="btn-row">
+        <a href="https://starnet.oasisomniverse.one" class="doc-link">EXPLORE STARNET →</a>
+        <a href="https://api.starnet.oasisomniverse.one/swagger" class="doc-link">STARNET API →</a>
+      </div>
+    </div>
+    <img src="img/starnet.jpg" alt="StarNet — OASIS Omniverse App & Asset Store" loading="lazy">
+  </div>
+</section>
+
+<!-- ── WEB4 FOUNDATION ── -->
+<section class="section" id="web4" style="background:radial-gradient(ellipse 60% 40% at 50% 50%,rgba(0,229,255,.03) 0%,transparent 70%)">
+  <div class="section-kicker">WEB4 · THE FOUNDATION</div>
+  <h2 class="section-title">THE INFRASTRUCTURE LAYER</h2>
+  <span class="section-line"></span>
+  <p class="section-sub">OASIS Web4 is the universal <strong>identity, data and reputation layer</strong> that every Web5 experience is built on. One avatar, one wallet, one karma score — across every connected world, forever.</p>
+  <div class="features-grid">
+    <div class="feature-item">
+      <span class="feature-icon">👤</span>
+      <div class="feature-title">UNIVERSAL AVATAR</div>
+      <div class="feature-desc">A single identity and reputation system that follows users across every OASIS-powered app, game, metaverse and provider.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">⭐</span>
+      <div class="feature-title">KARMA SYSTEM</div>
+      <div class="feature-desc">Real-world positive actions earn karma. A universal reputation score with real weight across the entire omniverse and beyond.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🧬</span>
+      <div class="feature-title">COSMIC ORM</div>
+      <div class="feature-desc">A universal ORM over Web2 and Web3 storage — HyperDrive-powered provider routing, auto-migration and replication.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">⚙️</span>
+      <div class="feature-title">HYPERDRIVE</div>
+      <div class="feature-desc">The abstraction layer routing data, identity and assets across 40+ Web2 and Web3 providers through a single unified API.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🔷</span>
+      <div class="feature-title">WEB4 NFTS</div>
+      <div class="feature-desc">OASIS NFTs wrap cross-chain Web3 NFTs with shared metadata, provider replication and universal ownership across all chains.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">💼</span>
+      <div class="feature-title">UNIVERSAL WALLET</div>
+      <div class="feature-desc">Avatar-linked wallet layer spanning Web2, Web3, fiat, DeFi and cross-chain asset management — one wallet for everything.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🔗</span>
+      <div class="feature-title">ONODE WEB4 API</div>
+      <div class="feature-desc">The WEB4 OASIS REST API — full access to identity, karma, data, NFTs and wallet operations from any application.</div>
+      <a href="https://api.web4.oasisomniverse.one/swagger" class="feature-link">SWAGGER DOCS →</a>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🌐</span>
+      <div class="feature-title">40+ INTEGRATIONS</div>
+      <div class="feature-desc">Native Holochain, Ethereum, Solana, Polygon, IPFS, MongoDB, Neo4j and 30+ more — all routing through the OASIS layer.</div>
+    </div>
+  </div>
+  <div class="doc-links">
+    <a class="doc-link" href="https://web4.oasisomniverse.one">WEB4 SITE →</a>
+    <a class="doc-link" href="https://api.web4.oasisomniverse.one/swagger">WEB4 API →</a>
+    <a class="doc-link" href="https://www.oasisweb4.com/">OASISWEB4.COM →</a>
+  </div>
+</section>
+
+<!-- ── HOLONET / ECOSYSTEM IMAGE ── -->
+<section class="section" style="background:rgba(255,255,255,.008)">
+  <div class="img-split img-left">
+    <img src="img/ECOSYSTEM.jpg" alt="OASIS Ecosystem" loading="lazy">
+    <div class="img-split-text">
+      <div class="section-kicker">THE BIG PICTURE</div>
+      <h3>One Ecosystem. Infinite Worlds.</h3>
+      <p>OASIS isn't a single app or a single chain — it's the <strong>connective tissue of the entire digital omniverse</strong>. Web4 provides the foundation: identity, data, reputation and cross-chain assets. Web5 builds the experiences on top.</p>
+      <p>Every world you build, every app you publish, every asset you earn — it all lives in the same interconnected ecosystem, accessible through a single avatar and wallet.</p>
+      <div class="pill-row">
+        <span class="pill cyan">Our World</span>
+        <span class="pill cyan">StarNet</span>
+        <span class="pill cyan">OPortal</span>
+        <span class="pill">COSMIC ORM</span>
+        <span class="pill">HyperDrive</span>
+        <span class="pill">STAR CLI</span>
+        <span class="pill">OAPPs</span>
+        <span class="pill gold">Founders NFT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TECHNOLOGY ── -->
+<section class="section">
+  <div class="section-kicker">ARCHITECTURE</div>
+  <h2 class="section-title">THE TECHNOLOGY</h2>
+  <span class="section-line"></span>
+  <div class="protocol-grid">
+    <div class="protocol-panel">
+      <div class="protocol-kicker">ONE API / ALL PROVIDERS</div>
+      <div class="protocol-heading">40+ integrations. One universal layer.</div>
+      <p class="protocol-copy">OASIS routes data, identity and assets across <strong>blockchains, storage networks, cloud providers and Web2 databases</strong> through a single HyperDrive abstraction. Switch providers without changing a line of application code.</p>
+      <div class="provider-group">
+        <div class="provider-group-label">CHAINS</div>
+        <div class="provider-pills">
+          <span class="provider-pill">Solana</span><span class="provider-pill">Ethereum</span><span class="provider-pill">Polygon</span>
+          <span class="provider-pill">Arbitrum</span><span class="provider-pill">Avalanche</span><span class="provider-pill">Base</span>
+          <span class="provider-pill">Holochain</span><span class="provider-pill">EOSIO</span><span class="provider-pill">Telos</span>
+          <span class="provider-pill">TON</span><span class="provider-pill">Stellar</span><span class="provider-pill">Hashgraph</span>
+          <span class="provider-pill">SEEDS</span><span class="provider-pill">Loom</span><span class="provider-pill">TRON</span>
+          <span class="provider-pill">BlockStack</span><span class="provider-pill">Elrond</span>
+        </div>
+      </div>
+      <div class="provider-group">
+        <div class="provider-group-label">STORAGE</div>
+        <div class="provider-pills">
+          <span class="provider-pill">MongoDB</span><span class="provider-pill">IPFS</span><span class="provider-pill">Arweave</span>
+          <span class="provider-pill">SQLite</span><span class="provider-pill">Neo4j</span><span class="provider-pill">Redis</span>
+          <span class="provider-pill">Elasticsearch</span><span class="provider-pill">CosmosDB</span>
+        </div>
+      </div>
+      <div class="provider-group" style="margin-bottom:0">
+        <div class="provider-group-label">IDENTITY & SOCIAL</div>
+        <div class="provider-pills">
+          <span class="provider-pill">Keycloak</span><span class="provider-pill">ActivityPub</span>
+          <span class="provider-pill">ThreeFold</span><span class="provider-pill">Farcaster</span><span class="provider-pill">Mastodon</span>
+        </div>
+      </div>
+    </div>
+    <div class="protocol-panel">
+      <div class="protocol-kicker">HOW IT WORKS</div>
+      <div class="protocol-list">
+        <div class="protocol-point">
+          <div class="protocol-num">01</div>
+          <div><div class="protocol-title">AVATAR LAYER</div><div class="protocol-text">A universal identity with karma, wallet and permissions — portable across every OASIS-connected experience and provider.</div></div>
+        </div>
+        <div class="protocol-point">
+          <div class="protocol-num">02</div>
+          <div><div class="protocol-title">HYPERDRIVE ROUTING</div><div class="protocol-text">Provider-agnostic data routing. Auto-replication, migration and failover across Web2 and Web3 backends transparently.</div></div>
+        </div>
+        <div class="protocol-point">
+          <div class="protocol-num">03</div>
+          <div><div class="protocol-title">STAR OAPPS</div><div class="protocol-text">Applications published via the STAR CLI run natively across the omniverse — no platform lock-in, ever.</div></div>
+        </div>
+        <div class="protocol-point">
+          <div class="protocol-num">04</div>
+          <div><div class="protocol-title">OGENGINE RUNTIME</div><div class="protocol-text">Shared game state, inventory, quests and karma propagate in real-time across all connected metaverses.</div></div>
+        </div>
+        <div class="protocol-point">
+          <div class="protocol-num">05</div>
+          <div><div class="protocol-title">STARNET PUBLISH</div><div class="protocol-text">Deploy OAPPs and holons to StarNet for instant distribution across the entire OASIS ecosystem.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ECOSYSTEM CARDS ── -->
+<section class="section" id="ecosystem" style="background:rgba(255,255,255,.008)">
+  <div class="section-kicker">THE ECOSYSTEM</div>
+  <h2 class="section-title">EXPLORE THE OMNIVERSE</h2>
+  <span class="section-line"></span>
+  <div class="ecosystem-grid">
+    <div class="eco-card">
+      <img src="img/web5.jpg" class="eco-card-img" alt="Web5 StarNet" loading="lazy">
+      <div class="eco-card-body">
+        <div class="eco-card-kicker">WEB5 · APP STORE</div>
+        <div class="eco-card-title">STARNET</div>
+        <div class="eco-card-desc">The Web5 app and asset store for the OASIS omniverse. Discover OAPPs, holons and digital assets that work across every connected world.</div>
+        <a href="https://starnet.oasisomniverse.one" class="eco-card-link">EXPLORE STARNET →</a>
+      </div>
+    </div>
+    <div class="eco-card">
+      <img src="img/web4.jpg" class="eco-card-img" alt="OASIS Web4" loading="lazy">
+      <div class="eco-card-body">
+        <div class="eco-card-kicker">WEB4 · FOUNDATION</div>
+        <div class="eco-card-title">OASIS WEB4</div>
+        <div class="eco-card-desc">The identity, data and reputation foundation. Universal avatar, karma, COSMIC ORM, cross-chain NFTs and the HyperDrive provider layer.</div>
+        <a href="https://web4.oasisomniverse.one" class="eco-card-link">EXPLORE WEB4 →</a>
+      </div>
+    </div>
+    <div class="eco-card">
+      <div class="eco-card-placeholder">🌀</div>
+      <div class="eco-card-body">
+        <div class="eco-card-kicker">PORTAL · GATEWAY</div>
+        <div class="eco-card-title">OPORTAL</div>
+        <div class="eco-card-desc">Your gateway into the OASIS omniverse. Manage your avatar, universal wallet, karma score and all connected worlds from one place.</div>
+        <a href="https://oportal.oasisomniverse.one" class="eco-card-link">OPEN OPORTAL →</a>
+      </div>
+    </div>
+    <div class="eco-card">
+      <img src="img/ogengine.jpg" class="eco-card-img" alt="OGEngine" loading="lazy">
+      <div class="eco-card-body">
+        <div class="eco-card-kicker">WEB5 · GAME ENGINE</div>
+        <div class="eco-card-title">OGENGINE</div>
+        <div class="eco-card-desc">Build or connect your world to the OASIS omniverse. Shared quests, universal inventory, karma propagation and STAR OAPPs — out of the box.</div>
+        <a href="https://github.com/NextGenSoftwareUK/OASIS" class="eco-card-link">VIEW ON GITHUB →</a>
+      </div>
+    </div>
+    <div class="eco-card">
+      <div class="eco-card-placeholder">🌍</div>
+      <div class="eco-card-body">
+        <div class="eco-card-kicker">WEB5 · FLAGSHIP GAME</div>
+        <div class="eco-card-title">OUR WORLD</div>
+        <div class="eco-card-desc">The flagship OASIS metaverse experience. Geo-located AR/VR gameplay where real-world positive actions shape the digital world around you.</div>
+        <a href="https://ourworldthegame.com" class="eco-card-link">EXPLORE OUR WORLD →</a>
+      </div>
+    </div>
+    <div class="eco-card founders-card">
+      <img src="img/ECOSYSTEM.jpg" class="eco-card-img" alt="OASIS Founders NFT" loading="lazy">
+      <div class="eco-card-body">
+        <div class="eco-card-kicker gold">FOUNDERS · NFT CAMPAIGN</div>
+        <div class="eco-card-title">BECOME A FOUNDER</div>
+        <div class="eco-card-desc">170 founder slots — ever. Own a piece of the omniverse and receive lifetime access, revenue share and governance rights over the ecosystem.</div>
+        <a href="https://founders.oasisomniverse.one" class="eco-card-link gold">EXPLORE FOUNDER TIERS →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOUNDERS CTA ── -->
+<section class="section" style="background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(240,165,0,.04) 0%,transparent 70%)">
+  <div class="founders-band">
+    <div class="founders-badge"><span class="founders-dot"></span>ONLY 170 FOUNDER SLOTS — EVER</div>
+    <h2>OWN A PIECE OF THE OMNIVERSE</h2>
+    <p>The OASIS Founders NFT campaign gives a limited number of early believers <strong>lifetime access, revenue share and governance rights</strong> over the ecosystem they helped build.</p>
+    <p>Three tiers. 170 total slots. This is the only founder round — there will never be another.</p>
+    <a href="https://founders.oasisomniverse.one" class="btn-gold">EXPLORE FOUNDER TIERS →</a>
+  </div>
+</section>
+
+<!-- ── DEVELOPERS ── -->
+<section class="section" id="developers">
+  <div class="section-kicker">FOR DEVELOPERS</div>
+  <h2 class="section-title">BUILD ON THE OMNIVERSE</h2>
+  <span class="section-line"></span>
+  <p class="section-sub">Everything you need to connect your application, game or metaverse to the OASIS layer — REST APIs, the STAR CLI/ODK, full documentation and an active open-source GitHub repository.</p>
+  <div class="features-grid" style="max-width:960px">
+    <div class="feature-item">
+      <span class="feature-icon">🔌</span>
+      <div class="feature-title">WEB4 OASIS API</div>
+      <div class="feature-desc">Full REST API for identity, data, karma, NFTs and wallet operations on the OASIS Web4 layer. Fully documented via Swagger.</div>
+      <a href="https://api.web4.oasisomniverse.one/swagger" class="feature-link">SWAGGER DOCS →</a>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">⭐</span>
+      <div class="feature-title">STARNET API</div>
+      <div class="feature-desc">REST API for the Web5 STAR layer — OAPPs, holons, StarNet assets and cross-world game state management.</div>
+      <a href="https://api.starnet.oasisomniverse.one/swagger" class="feature-link">SWAGGER DOCS →</a>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">💻</span>
+      <div class="feature-title">STAR CLI / ODK</div>
+      <div class="feature-desc">Hundreds of CLI commands to beam in, publish OAPPs, generate from DNA templates and manage holons across the omniverse.</div>
+      <a href="https://github.com/NextGenSoftwareUK/OASIS" class="feature-link">VIEW ON GITHUB →</a>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">📄</span>
+      <div class="feature-title">DOCUMENTATION</div>
+      <div class="feature-desc">Whitepapers, technical docs, API references, the investor evaluation guide and full architecture documentation.</div>
+      <a href="https://github.com/NextGenSoftwareUK/OASIS/tree/master/Docs" class="feature-link">READ DOCS →</a>
+    </div>
+  </div>
+  <div class="doc-links">
+    <a class="doc-link" href="https://github.com/NextGenSoftwareUK/OASIS">GITHUB REPO</a>
+    <a class="doc-link" href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/THE_OASIS_COMPREHENSIVE_WHITEPAPER.md">WHITEPAPER</a>
+    <a class="doc-link" href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/OUR_WORLD_WHITEPAPER.md">OUR WORLD PAPER</a>
+    <a class="doc-link" href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/INVESTOR_EVALUATION_GUIDE.md">INVESTOR GUIDE</a>
+    <a class="doc-link" href="https://ourworldthegame.com">OURWORLDTHEGAME.COM</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-logo">OASIS OMNIVERSE</div>
+  <div class="footer-tagline">The unified Web4 + Web5 ecosystem</div>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h4>ECOSYSTEM</h4>
+      <ul>
+        <li><a href="https://starnet.oasisomniverse.one">StarNet</a></li>
+        <li><a href="https://web4.oasisomniverse.one">Web4</a></li>
+        <li><a href="https://oportal.oasisomniverse.one">OPortal</a></li>
+        <li><a href="https://ourworldthegame.com">Our World</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>DEVELOPERS</h4>
+      <ul>
+        <li><a href="https://api.web4.oasisomniverse.one/swagger">Web4 API</a></li>
+        <li><a href="https://api.starnet.oasisomniverse.one/swagger">StarNet API</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS">GitHub</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/tree/master/Docs">Docs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>RESOURCES</h4>
+      <ul>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/THE_OASIS_COMPREHENSIVE_WHITEPAPER.md">Whitepaper</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/INVESTOR_EVALUATION_GUIDE.md">Investor Guide</a></li>
+        <li><a href="https://www.oasisweb4.com/">oasisweb4.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>FOUNDERS</h4>
+      <ul>
+        <li><a href="https://founders.oasisomniverse.one">Founders NFT</a></li>
+        <li><a href="https://founders.oasisomniverse.one#tiers">Genesis Tier</a></li>
+        <li><a href="https://founders.oasisomniverse.one#tiers">Core Tier</a></li>
+        <li><a href="https://founders.oasisomniverse.one#tiers">Supporter Tier</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-copy">© 2025 Next Gen Software. All rights reserved. · OASIS is open source — MIT Licensed.</div>
+</footer>
+
+</div><!-- /wrap -->
+
+<script>
+// Stars canvas
+(function(){
+  const canvas = document.getElementById('stars-canvas');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+
+  function resize(){
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+    init();
+  }
+
+  function init(){
+    stars = [];
+    const n = Math.floor(canvas.width * canvas.height / 3800);
+    for(let i = 0; i < n; i++){
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.4 + 0.3,
+        a: Math.random() * 0.8 + 0.1,
+        phase: Math.random() * Math.PI * 2,
+        speed: Math.random() * 0.005 + 0.001
+      });
+    }
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const t = performance.now() * 0.001;
+    stars.forEach(s => {
+      const alpha = s.a * (0.5 + 0.5 * Math.sin(t * s.speed * 100 + s.phase));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(200,220,255,${alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll(
+  '.feature-item, .eco-card, .protocol-panel, .stat-item, ' +
+  '.img-split-text, .img-split img, .founders-band, .section-sub'
+).forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity .65s ease, transform .65s ease';
+  revealObserver.observe(el);
+});
+
+// Mobile menu
+function toggleMenu(){
+  const links = document.querySelector('.nav-links');
+  if(links.style.display === 'flex'){
+    links.style.display = 'none';
+  } else {
+    links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:62px;left:0;right:0;background:rgba(3,7,20,.97);padding:20px 28px;gap:18px;border-bottom:1px solid rgba(0,229,255,.1)';
+  }
+}
+
+// Close mobile menu on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    const links = document.querySelector('.nav-links');
+    if(window.innerWidth < 900) links.style.display = 'none';
+  });
+});
+</script>
+</body>
+</html>
