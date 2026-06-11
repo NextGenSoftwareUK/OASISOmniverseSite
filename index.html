@@ -213,6 +213,35 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
   .hero-badge{font-size:9px;padding:6px 12px}
   .stats-band{grid-template-columns:1fr 1fr}
 }
+/* ── INFOGRAPHIC GRID ── */
+.infographic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
+.infographic-card--hero{grid-column:1/-1}
+.infographic-card--hero{cursor:default!important}
+.infographic-card--hero::after{display:none!important}
+.infographic-card--hero:hover{transform:none;box-shadow:none;filter:none;border-color:rgba(0,229,255,.12)}
+.infographic-card--hero img{height:auto!important;max-height:none!important;object-fit:contain!important}
+.infographic-card{background:var(--bg-card);border:1px solid rgba(0,229,255,.12);border-radius:12px;overflow:hidden;cursor:zoom-in;transition:transform .3s,border-color .3s,box-shadow .3s;position:relative}
+.infographic-card:hover{transform:translateY(-4px);border-color:rgba(0,229,255,.35);box-shadow:0 12px 40px rgba(0,229,255,.12);filter:drop-shadow(0 0 12px rgba(0,229,255,.2))}
+.infographic-card img{width:100%;height:280px;object-fit:cover;object-position:top;display:block;transition:opacity .3s}
+.infographic-card:hover img{opacity:.85}
+.infographic-card::after{content:'🔍 CLICK TO EXPAND';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.5);color:var(--cyan);font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.15em;opacity:0;transition:opacity .3s}
+.infographic-card:hover::after{opacity:1}
+.infographic-label{padding:14px 16px;border-top:1px solid rgba(0,229,255,.08)}
+.infographic-tag{display:block;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--cyan);margin-bottom:4px}
+.infographic-title{display:block;font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:.06em;color:var(--heading-sub);line-height:1.4}
+/* ── LIGHTBOX ── */
+#lightbox.open{display:flex!important;animation:fadeIn .2s ease}
+/* ── VIDEO GRID ── */
+.video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:1100px;margin:0 auto}
+.video-card{background:rgba(10,21,53,.82);border:1px solid rgba(0,229,255,.14);border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.18)}
+.video-frame{position:relative;aspect-ratio:16/9;background:#020610}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-info{padding:18px 18px 20px}
+.video-kicker{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--cyan);margin-bottom:8px}
+.video-title{font-family:'Orbitron',sans-serif;font-size:13px;letter-spacing:.08em;color:var(--cyan);margin-bottom:8px}
+.video-text{font-size:14px;color:var(--text-dim);line-height:1.55}
+@media(max-width:900px){.infographic-grid{grid-template-columns:repeat(2,1fr)}.video-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.infographic-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -587,6 +616,86 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
   </div>
 </section>
 
+<!-- ── INFOGRAPHICS ── -->
+<section class="section">
+  <div class="section-kicker">THE TECHNOLOGY</div>
+  <h2 class="section-title">INSIDE THE STACK</h2>
+  <span class="section-line"></span>
+  <p class="section-sub">Dive deeper into the OASIS architecture — the infrastructure, protocols and ecosystems powering the omniverse.</p>
+  <div class="infographic-grid">
+    <div class="infographic-card infographic-card--hero" style="cursor:default">
+      <img src="img/ECOSYSTEM.jpg" alt="OASIS Ecosystem" loading="lazy">
+      <div class="infographic-label">
+        <span class="infographic-tag">ECOSYSTEM</span>
+        <span class="infographic-title">The Full OASIS Ecosystem</span>
+      </div>
+    </div>
+    <div class="infographic-card" onclick="openLightbox('img/web4.jpg')">
+      <img src="img/web4.jpg" alt="OASIS = WEB4" loading="lazy">
+      <div class="infographic-label">
+        <span class="infographic-tag">WEB4</span>
+        <span class="infographic-title">The Layer Above Everything</span>
+      </div>
+    </div>
+    <div class="infographic-card" onclick="openLightbox('img/hyperdrive.png')">
+      <img src="img/hyperdrive.png" alt="The OASIS Hyperdrive" loading="lazy">
+      <div class="infographic-label">
+        <span class="infographic-tag">HYPERDRIVE</span>
+        <span class="infographic-title">The OASIS Hyperdrive</span>
+      </div>
+    </div>
+    <div class="infographic-card" onclick="openLightbox('img/web5.jpg')">
+      <img src="img/web5.jpg" alt="The Web4 + Web5 Stack" loading="lazy">
+      <div class="infographic-label">
+        <span class="infographic-tag">WEB4 + WEB5</span>
+        <span class="infographic-title">Unifying Web2 + Web3 Into One Living System</span>
+      </div>
+    </div>
+    <div class="infographic-card" onclick="openLightbox('img/starnet.jpg')">
+      <img src="img/starnet.jpg" alt="STARNET — Web5 App/Asset Store" loading="lazy">
+      <div class="infographic-label">
+        <span class="infographic-tag">STARNET</span>
+        <span class="infographic-title">Web5 App &amp; Asset Store Ecosystem</span>
+      </div>
+    </div>
+    <div class="infographic-card" onclick="openLightbox('img/smartbricks.png')">
+      <img src="img/smartbricks.png" alt="Smart Bricks" loading="lazy">
+      <div class="infographic-label">
+        <span class="infographic-tag">SMART BRICKS</span>
+        <span class="infographic-title">Modular Intelligent Holons</span>
+      </div>
+    </div>
+    <div class="infographic-card" onclick="openLightbox('img/ogengine.jpg')">
+      <img src="img/ogengine.jpg" alt="OGEngine — The OASIS Game Engine" loading="lazy">
+      <div class="infographic-label">
+        <span class="infographic-tag">OGENGINE</span>
+        <span class="infographic-title">The OASIS Game Engine</span>
+      </div>
+    </div>
+    <div class="infographic-card" onclick="openLightbox('img/oland.jpg')">
+      <img src="img/oland.jpg" alt="OLAND — Programmable Digital Space" loading="lazy">
+      <div class="infographic-label">
+        <span class="infographic-tag">OLAND</span>
+        <span class="infographic-title">Programmable Digital Space</span>
+      </div>
+    </div>
+    <div class="infographic-card" onclick="openLightbox('img/HOLONET.jpg')">
+      <img src="img/HOLONET.jpg" alt="HoloNET — Holochain Integration" loading="lazy">
+      <div class="infographic-label">
+        <span class="infographic-tag">HOLONET</span>
+        <span class="infographic-title">Holochain Integration Layer</span>
+      </div>
+    </div>
+    <div class="infographic-card" onclick="openLightbox('img/HOLONET ORM.jpg')">
+      <img src="img/HOLONET ORM.jpg" alt="HoloNET ORM" loading="lazy">
+      <div class="infographic-label">
+        <span class="infographic-tag">HOLONET ORM</span>
+        <span class="infographic-title">Holochain Object Relation Mapper</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── ECOSYSTEM CARDS ── -->
 <section class="section" id="ecosystem" style="background:rgba(255,255,255,.008)">
   <div class="section-kicker">THE ECOSYSTEM</div>
@@ -828,6 +937,76 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
     <p>The OASIS Founders NFT campaign gives a limited number of early believers <strong>lifetime access, revenue share and governance rights</strong> over the ecosystem they helped build.</p>
     <p>Three tiers. 170 total slots. This is the only founder round — there will never be another.</p>
     <a href="https://founders.oasisomniverse.one" class="btn-gold">EXPLORE FOUNDER TIERS →</a>
+  </div>
+</section>
+
+<!-- ── VIDEO LIBRARY ── -->
+<section class="section">
+  <div class="section-kicker">IN ACTION</div>
+  <h2 class="section-title">SEE THE TECH WORKING</h2>
+  <span class="section-line"></span>
+  <p class="section-sub">Live demos, prototypes and deep-dives across OGEngine, STAR CLI, OPORTAL and Our World.</p>
+  <div class="video-grid">
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/s4aCSoD84pw" title="Our World GeoNFT AR demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">OUR WORLD</div><div class="video-title">GEOLOCATION AR + WEB4 GEONFTS</div><div class="video-text">A live look at Our World using geolocation AR gameplay with Web4 GeoNFTs from the OASIS NFT API.</div></div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/3O4ykhDzsiE" title="OGEngine shared inventory and SSO demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">OGENGINE DEMO 1</div><div class="video-title">ODOOM + OQUAKE SSO INVENTORY</div><div class="video-text">Shows shared inventory and avatar SSO flowing across ODOOM and OQuake through OGEngine and STAR.</div></div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/ZH5u6OVPVYg?start=1" title="OGEngine cross-game quests demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">OGENGINE DEMO 2</div><div class="video-title">WEAPONS + CROSS-GAME QUESTS</div><div class="video-text">Demonstrates shared weapons, inventory, SSO and cross-game quests between ODOOM and OQuake.</div></div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube.com/embed/DlWXW2U9SfQ?si=gjErx2uCI16DaeMl" title="STAR CLI DEMO 1 - Intro & OAPPs (PREVIEW)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">STAR CLI DEMO 1</div><div class="video-title">INTRO &amp; OAPPs (PREVIEW)</div><div class="video-text">Introduction to STAR CLI/ODK and demos the low/no code generator for creating OAPPs.</div></div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/abqXaiVz2zs?start=1" title="STAR CLI DEMO 2 - OAPPs & NFTs (PREVIEW)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">STAR CLI DEMO 2</div><div class="video-title">OAPPs &amp; NFTs (PREVIEW)</div><div class="video-text">Continues from demo 1 with OAPP Templates and NFTs.</div></div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/hf5cT4s04BA?start=1" title="STAR CLI DEMO 3 - GeoNFTs (PREVIEW)" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">STAR CLI DEMO 3</div><div class="video-title">GeoNFTs (PREVIEW)</div><div class="video-text">Continues from demo 2 with Geo-NFTs.</div></div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/UOggBNRH9Dk?start=1" title="OPORTAL Preview 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">OPORTAL PREVIEW 1</div><div class="video-title">OPORTAL PREVIEW</div><div class="video-text">Sneak peek at what we have been working on with OPORTAL.</div></div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/Xr0HCKiSfAU?start=1" title="AI NFT Generation On OASIS" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">OPORTAL PREVIEW 2</div><div class="video-title">AI NFT GENERATION ON OASIS</div><div class="video-text">Quick demo of creating NFTs using the OASIS API NFT API and AI prompts.</div></div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/2d8deWOI7u8?start=1" title="(AI) Holonic Architecture" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">OPORTAL PREVIEW 3</div><div class="video-title">(AI) HOLONIC ARCHITECTURE</div><div class="video-text">Preview of WEB6 — the AI abstraction and aggregation layer with collective holonic shared memory between agents.</div></div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/PAZwFPGrvkc" title="OASIS API Demo Session 1 - Full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">OASIS API</div><div class="video-title">API DEMO SESSION 1 — FULL</div><div class="video-text">Full walkthrough of the OASIS API covering core endpoints, authentication and live request/response demos.</div></div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/UICajpltv1Y" title="Holochain Interview Part 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">HOLOCHAIN</div><div class="video-title">INTERVIEW PART 1</div><div class="video-text">In-depth discussion on Holochain integration with the OASIS platform and decentralised data storage.</div></div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/SsNsEDPglos" title="Holochain Interview Part 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">HOLOCHAIN</div><div class="video-title">INTERVIEW PART 2</div><div class="video-text">Continues the conversation on Holochain, covering deeper technical aspects and the WEB4 vision.</div></div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/a7CePybCoA8" title="AR World Explainer Preview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">OUR WORLD</div><div class="video-title">AR WORLD EXPLAINER PREVIEW</div><div class="video-text">Preview explainer of the Our World AR experience and the vision behind the platform.</div></div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/1n2Zf5XG9v0" title="Our World AR Geolocation Prototype" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">OUR WORLD</div><div class="video-title">AR GEOLOCATION PROTOTYPE</div><div class="video-text">Early prototype footage of the Our World AR geolocation system in action.</div></div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/SB97mvzJiRg" title="Founders Introduction to Our World" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-info"><div class="video-kicker">OUR WORLD</div><div class="video-title">FOUNDERS INTRODUCTION</div><div class="video-text">The founders introduce Our World, the vision, the team and what they are building for the future.</div></div>
+    </div>
   </div>
 </section>
 
@@ -1084,6 +1263,23 @@ document.querySelectorAll('.nav-links a').forEach(a => {
     if(window.innerWidth < 900) links.style.display = 'none';
   });
 });
+
+function openLightbox(src) {
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightboxImg').src = src;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
+
+<div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(1,4,18,.96);backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:20px;cursor:zoom-out">
+  <img id="lightboxImg" src="" alt="" style="max-width:90vw;max-height:90vh;border-radius:12px;border:1px solid rgba(0,229,255,.2);box-shadow:0 0 60px rgba(0,229,255,.2);object-fit:contain">
+  <button onclick="closeLightbox()" style="position:fixed;top:20px;right:24px;background:none;border:none;color:#fff;font-size:32px;cursor:pointer;opacity:.7;line-height:1">✕</button>
+</div>
 </body>
 </html>
