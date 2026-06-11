@@ -134,7 +134,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);
 
 /* ── ECOSYSTEM CARDS ── */
 .ecosystem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;max-width:1100px;margin:0 auto}
-.eco-card{background:var(--bg-card);border:1px solid rgba(0,229,255,.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s,border-color .3s}
+.eco-card{background:var(--bg-card);border:1px solid rgba(0,229,255,.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s,border-color .3s;will-change:transform}
 .eco-card:hover{transform:translateY(-7px);box-shadow:0 20px 60px rgba(0,229,255,.1);border-color:rgba(0,229,255,.3)}
 .eco-card.founders-card{border-color:rgba(240,165,0,.25);box-shadow:0 0 30px rgba(240,165,0,.07)}
 .eco-card.founders-card:hover{box-shadow:0 20px 60px rgba(240,165,0,.18);border-color:rgba(240,165,0,.45)}
@@ -584,7 +584,23 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
   <span class="section-line"></span>
   <div class="ecosystem-grid">
     <div class="eco-card">
-      <img src="img/STARNET.png" class="eco-card-img zoomable" alt="STARNET" loading="lazy" onclick="openLightbox('img/STARNET.png')" style="object-fit:contain;background:#000;padding:20px">
+      <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#020810,#040d20);gap:14px">
+        <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="27" cy="27" r="22" stroke="#00e5ff" stroke-width="0.6" fill="none" opacity="0.15"/>
+          <circle cx="27" cy="7"  r="3" fill="#00e5ff" opacity="0.8"/>
+          <circle cx="44" cy="38" r="3" fill="#00e5ff" opacity="0.8"/>
+          <circle cx="10" cy="38" r="3" fill="#00e5ff" opacity="0.8"/>
+          <circle cx="40" cy="14" r="2" fill="#00e5ff" opacity="0.5"/>
+          <circle cx="14" cy="14" r="2" fill="#00e5ff" opacity="0.5"/>
+          <circle cx="27" cy="27" r="4.5" fill="#00e5ff" opacity="0.95"/>
+          <line x1="27" y1="27" x2="27"  y2="9.5"  stroke="#00e5ff" stroke-width="0.9" opacity="0.45"/>
+          <line x1="27" y1="27" x2="42"  y2="37"   stroke="#00e5ff" stroke-width="0.9" opacity="0.45"/>
+          <line x1="27" y1="27" x2="12"  y2="37"   stroke="#00e5ff" stroke-width="0.9" opacity="0.45"/>
+          <line x1="27" y1="27" x2="39"  y2="15.5" stroke="#00e5ff" stroke-width="0.9" opacity="0.3"/>
+          <line x1="27" y1="27" x2="15"  y2="15.5" stroke="#00e5ff" stroke-width="0.9" opacity="0.3"/>
+        </svg>
+        <div style="font-family:'Orbitron',sans-serif;font-size:20px;font-weight:900;letter-spacing:0.22em;color:#fff;text-shadow:0 0 18px rgba(0,229,255,.55)">STARNET</div>
+      </div>
       <div class="eco-card-body">
         <div class="eco-card-kicker">WEB5 · APP STORE</div>
         <div class="eco-card-title">STARNET</div>
@@ -593,7 +609,17 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
       </div>
     </div>
     <div class="eco-card">
-      <img src="img/OASIS.jpg" class="eco-card-img zoomable" alt="OASIS Web4" loading="lazy" onclick="openLightbox('img/OASIS.jpg')" style="object-fit:contain;background:#000;padding:30px">
+      <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#020810,#040d20);gap:10px">
+        <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="29" cy="29" rx="26" ry="9"  stroke="#00e5ff" stroke-width="1.2" fill="none" opacity="0.35" transform="rotate(-35 29 29)"/>
+          <ellipse cx="29" cy="29" rx="26" ry="9"  stroke="#00e5ff" stroke-width="1.2" fill="none" opacity="0.25" transform="rotate(35 29 29)"/>
+          <ellipse cx="29" cy="29" rx="26" ry="9"  stroke="#00e5ff" stroke-width="1.2" fill="none" opacity="0.15" transform="rotate(0 29 29)"/>
+          <circle  cx="29" cy="29" r="5.5" fill="#00e5ff" opacity="0.9"/>
+          <circle  cx="29" cy="29" r="9"   stroke="#00e5ff" stroke-width="0.6" fill="none" opacity="0.3"/>
+        </svg>
+        <div style="font-family:'Orbitron',sans-serif;font-size:24px;font-weight:900;letter-spacing:0.25em;color:#fff;text-shadow:0 0 20px rgba(0,229,255,.5)">OASIS</div>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.35em;color:#00e5ff;opacity:0.75">WEB4</div>
+      </div>
       <div class="eco-card-body">
         <div class="eco-card-kicker">WEB4 · FOUNDATION</div>
         <div class="eco-card-title">OASIS WEB4</div>
@@ -602,7 +628,17 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
       </div>
     </div>
     <div class="eco-card">
-      <div class="eco-card-placeholder">🌀</div>
+      <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#020810,#040d20);gap:12px">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="28" r="24" stroke="#00e5ff" stroke-width="0.6" fill="none" opacity="0.12"/>
+          <circle cx="28" cy="28" r="19" stroke="#00e5ff" stroke-width="1"   fill="none" opacity="0.22"/>
+          <circle cx="28" cy="28" r="14" stroke="#00e5ff" stroke-width="1.2" fill="none" opacity="0.38"/>
+          <circle cx="28" cy="28" r="9"  stroke="#00e5ff" stroke-width="1.5" fill="none" opacity="0.6"/>
+          <circle cx="28" cy="28" r="4"  stroke="#00e5ff" stroke-width="1.8" fill="none" opacity="0.85"/>
+          <circle cx="28" cy="28" r="1.5" fill="#00e5ff" opacity="1"/>
+        </svg>
+        <div style="font-family:'Orbitron',sans-serif;font-size:18px;font-weight:900;letter-spacing:0.2em;color:#fff;text-shadow:0 0 18px rgba(0,229,255,.5)">OPORTAL</div>
+      </div>
       <div class="eco-card-body">
         <div class="eco-card-kicker">PORTAL · GATEWAY</div>
         <div class="eco-card-title">OPORTAL</div>
