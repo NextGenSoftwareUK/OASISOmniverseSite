@@ -250,6 +250,28 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
 .download-list a{color:var(--text);font-size:13px;line-height:1.35;text-decoration:none}
 .download-list a:hover{color:var(--cyan)}
 .download-note{max-width:900px;margin:28px auto 0;text-align:center;color:var(--text-dim);font-size:14px;line-height:1.7}
+
+/* ── FLIGHT MAP ── */
+.fm-phase{border-radius:14px;overflow:hidden;max-width:900px;margin:0 auto 20px;background:rgba(10,21,53,.8)}
+.fm-phase.launched{border:1px solid rgba(0,229,255,.22)}
+.fm-phase.active{border:1px solid rgba(240,165,0,.28)}
+.fm-phase.upcoming{border:1px solid rgba(124,58,237,.22)}
+.fm-phase-head{display:flex;align-items:center;justify-content:space-between;padding:14px 26px;font-family:'Orbitron',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em}
+.fm-phase.launched .fm-phase-head{background:rgba(0,229,255,.1);border-bottom:1px solid rgba(0,229,255,.2);color:var(--cyan)}
+.fm-phase.active .fm-phase-head{background:rgba(240,165,0,.09);border-bottom:1px solid rgba(240,165,0,.22);color:var(--gold)}
+.fm-phase.upcoming .fm-phase-head{background:rgba(124,58,237,.07);border-bottom:1px solid rgba(124,58,237,.18);color:#a78bfa}
+.fm-quarter{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.18em;opacity:.7}
+.fm-body{padding:22px 26px;display:flex;flex-direction:column;gap:13px}
+.fm-item{display:flex;align-items:flex-start;gap:14px;font-size:15px;color:#a8bfd8;line-height:1.55}
+.fm-item.featured{background:rgba(240,165,0,.05);border:1px solid rgba(240,165,0,.15);border-radius:8px;padding:10px 14px;margin:2px 0;color:var(--text)}
+.fm-icon{flex-shrink:0;width:18px;text-align:center;margin-top:1px;font-style:normal}
+.launched .fm-icon{color:var(--cyan)}
+.active .fm-icon{color:var(--gold)}
+.upcoming .fm-icon{color:#a78bfa}
+.fm-note{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--text-dim);display:block;margin-top:3px}
+.fm-footer-notes{max-width:900px;margin:22px auto 0;background:rgba(10,21,53,.5);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:18px 26px;display:flex;flex-direction:column;gap:8px}
+.fm-footer-notes li{display:flex;align-items:flex-start;gap:10px;list-style:none;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.04em;color:var(--text-dim);line-height:1.65}
+.fm-footer-notes li::before{content:'◆';color:var(--cyan);flex-shrink:0;font-size:9px;margin-top:3px}
 </style>
 </head>
 <body>
@@ -1161,6 +1183,69 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
     </div>
   </div>
   <p class="download-note">Release builds, SDKs and devkits span C#, Python, Rust, Unity, Unreal, Angular, React, Next.js, Svelte, Vue and Vanilla JS — plus ODOOM, OQuake and the ODOOM Editor as playable OGEngine showcases.</p>
+</section>
+
+<!-- ── FLIGHT MAP ── -->
+<section class="section" id="flightmap" style="background:rgba(255,255,255,.004)">
+  <div class="section-kicker">THE ROAD AHEAD</div>
+  <h2 class="section-title">OASIS FLIGHT MAP</h2>
+  <span class="section-line"></span>
+  <p class="section-sub" style="margin-bottom:40px">Where we've been, where we are, and where we're going.</p>
+
+  <!-- LAUNCHED -->
+  <div class="fm-phase launched reveal">
+    <div class="fm-phase-head">
+      <span>LAUNCHED</span>
+      <span class="fm-quarter">2026 Q1</span>
+    </div>
+    <div class="fm-body">
+      <div class="fm-item"><i class="fm-icon">✓</i><span>Launch <strong>STAR MVP</strong></span></div>
+      <div class="fm-item"><i class="fm-icon">✓</i><span>Launch <strong>WEB5 STAR API</strong></span></div>
+      <div class="fm-item"><i class="fm-icon">✓</i><span>Release <strong>WEB4 OASIS API</strong> (v4.4.4)</span></div>
+    </div>
+  </div>
+
+  <!-- IN PROGRESS -->
+  <div class="fm-phase active reveal">
+    <div class="fm-phase-head">
+      <span>IN PROGRESS</span>
+      <span class="fm-quarter">2026 Q2 / Q3</span>
+    </div>
+    <div class="fm-body">
+      <div class="fm-item featured"><i class="fm-icon">◆</i><div><span><strong>OASIS Omniverse</strong> Reboot &amp; Ecosystem Launch</span><span class="fm-note">Targeting June 21st — partial rollout may extend into Q3</span></div></div>
+      <div class="fm-item"><i class="fm-icon">→</i><span>Launch <strong>OPORTAL</strong></span></div>
+      <div class="fm-item"><i class="fm-icon">→</i><span>Launch new <strong>oasisomniverse.one</strong> with subscription plans</span></div>
+      <div class="fm-item"><i class="fm-icon">→</i><div><span>Release <strong>Our World MVP</strong></span><span class="fm-note">May be released earlier</span></div></div>
+      <div class="fm-item"><i class="fm-icon">→</i><span>Release <strong>HoloNET</strong> updated to latest Holochain — integrated into OASIS &amp; Our World</span></div>
+      <div class="fm-item"><i class="fm-icon">→</i><span><strong>Token launch</strong> with OpenServ</span></div>
+    </div>
+  </div>
+
+  <!-- UPCOMING -->
+  <div class="fm-phase upcoming reveal">
+    <div class="fm-phase-head">
+      <span>UPCOMING</span>
+      <span class="fm-quarter">2026 Q3 / Q4</span>
+    </div>
+    <div class="fm-body">
+      <div class="fm-item"><i class="fm-icon">◆</i><span>OASIS Integration with <strong>OpenServ Agents</strong></span></div>
+      <div class="fm-item"><i class="fm-icon">◆</i><span>Release <strong>OASIS MCP Server</strong></span></div>
+      <div class="fm-item"><i class="fm-icon">◆</i><span>Release <strong>OASIS LLM AI Integration</strong></span></div>
+      <div class="fm-item"><i class="fm-icon">◆</i><span>Release <strong>STAR</strong> upgrade — nextgen interoperable library system, plugin system, COSMIC API &amp; more</span></div>
+      <div class="fm-item"><i class="fm-icon">◆</i><span>Release <strong>OASIS HyperDrive v2</strong> with many more advanced features</span></div>
+      <div class="fm-item"><i class="fm-icon">◆</i><span>Release <strong>HoloNET HyperNET P2P</strong> — enabling infinite simultaneous players</span></div>
+      <div class="fm-item"><i class="fm-icon">◆</i><span>Release <strong>ONET P2P Network</strong></span></div>
+      <div class="fm-item"><i class="fm-icon">◆</i><span><strong>OASIS STUDIO IDE</strong> with deep AI integration <em style="font-style:normal;color:var(--text-dim);font-family:'Share Tech Mono',monospace;font-size:11px">(similar to Cursor)</em></span></div>
+      <div class="fm-item"><i class="fm-icon">◆</i><span><strong>OASIS ONODE Manager</strong> — desktop app for Windows, Mac &amp; Linux</span></div>
+      <div class="fm-item"><i class="fm-icon">◆</i><div><span><strong>P2P Uber Replacement MVP</strong></span><span class="fm-note">TBA</span></div></div>
+      <div class="fm-item"><i class="fm-icon">◆</i><span>Release <strong>OASIS Omniverse</strong> Interoperable Metaverses / Games MVP</span></div>
+    </div>
+  </div>
+
+  <ul class="fm-footer-notes">
+    <li>The above milestones are estimated and may change.</li>
+    <li>In parallel, regular upgrades to STAR &amp; OASIS will ship continuously throughout the year and beyond.</li>
+  </ul>
 </section>
 
 <!-- ── FOOTER ── -->
