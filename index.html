@@ -52,6 +52,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);
 }
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
+/* ── HERO ANIMATED BACKGROUND ── */
+.hero{position:relative}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.6}
+.hero>*:not(.hero-bg){position:relative;z-index:1}
+
 /* ── HERO ── */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 20px 60px;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,229,255,.08) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(124,58,237,.12) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 20% 60%,rgba(0,229,255,.04) 0%,transparent 60%)}
 .logo-ring{width:100px;height:100px;border-radius:50%;border:2px solid var(--cyan);margin-bottom:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(0,229,255,.4),inset 0 0 20px rgba(0,229,255,.1);animation:ringPulse 3s ease-in-out infinite,float 6s ease-in-out infinite;position:relative}
@@ -302,6 +307,71 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
 
 <!-- ── HERO ── -->
 <section class="hero">
+  <svg class="hero-bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <radialGradient id="oo-glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#00e5ff" stop-opacity=".10"/>
+        <stop offset="55%" stop-color="#7c3aed" stop-opacity=".05"/>
+        <stop offset="100%" stop-color="#030714" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="oo-soft"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+
+    <ellipse cx="720" cy="450" rx="680" ry="460" fill="url(#oo-glow)"/>
+
+    <!-- faint spokes + travelling pulses -->
+    <g stroke-width="1" opacity=".25">
+      <line x1="720" y1="450" x2="1280" y2="450" stroke="#00e5ff"/>
+      <line x1="720" y1="450" x2="267" y2="238" stroke="#f0a500"/>
+      <line x1="720" y1="450" x2="893" y2="792" stroke="#8b5cf6"/>
+      <line x1="720" y1="450" x2="267" y2="662" stroke="#00cc88"/>
+      <line x1="720" y1="450" x2="893" y2="108" stroke="#ff4455"/>
+    </g>
+    <circle r="4" fill="#00e5ff" opacity=".9" filter="url(#oo-soft)"><animateMotion dur="3s" repeatCount="indefinite" path="M720,450 L1280,450"/></circle>
+    <circle r="4" fill="#f0a500" opacity=".9" filter="url(#oo-soft)"><animateMotion dur="3.4s" repeatCount="indefinite" path="M720,450 L267,238"/></circle>
+    <circle r="4" fill="#8b5cf6" opacity=".9" filter="url(#oo-soft)"><animateMotion dur="3.8s" repeatCount="indefinite" path="M720,450 L893,792"/></circle>
+    <circle r="4" fill="#00cc88" opacity=".9" filter="url(#oo-soft)"><animateMotion dur="4.2s" repeatCount="indefinite" path="M720,450 L267,662"/></circle>
+    <circle r="4" fill="#ff4455" opacity=".9" filter="url(#oo-soft)"><animateMotion dur="3.6s" repeatCount="indefinite" path="M720,450 L893,108"/></circle>
+
+    <!-- outer orbit -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0 720 450" to="360 720 450" dur="72s" repeatCount="indefinite"/>
+      <ellipse cx="720" cy="450" rx="560" ry="360" fill="none" stroke="rgba(0,229,255,.1)" stroke-width="1" stroke-dasharray="6,10"/>
+      <g filter="url(#oo-soft)"><circle cx="1280" cy="450" r="12" fill="rgba(0,229,255,.18)"/><circle cx="1280" cy="450" r="6" fill="#00e5ff"/></g>
+      <g filter="url(#oo-soft)"><circle cx="893" cy="792" r="12" fill="rgba(139,92,246,.18)"/><circle cx="893" cy="792" r="6" fill="#8b5cf6"/></g>
+      <g filter="url(#oo-soft)"><circle cx="267" cy="662" r="12" fill="rgba(0,204,136,.18)"/><circle cx="267" cy="662" r="6" fill="#00cc88"/></g>
+      <g filter="url(#oo-soft)"><circle cx="267" cy="238" r="12" fill="rgba(240,165,0,.18)"/><circle cx="267" cy="238" r="6" fill="#f0a500"/></g>
+      <g filter="url(#oo-soft)"><circle cx="893" cy="108" r="12" fill="rgba(255,68,85,.18)"/><circle cx="893" cy="108" r="6" fill="#ff4455"/></g>
+    </g>
+
+    <!-- mid orbit (reverse) -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="360 720 450" to="0 720 450" dur="54s" repeatCount="indefinite"/>
+      <ellipse cx="720" cy="450" rx="420" ry="270" fill="none" stroke="rgba(124,58,237,.12)" stroke-width="1" stroke-dasharray="5,9"/>
+      <g filter="url(#oo-soft)"><circle cx="1017" cy="641" r="10" fill="rgba(255,170,0,.18)"/><circle cx="1017" cy="641" r="5" fill="#ffaa00"/></g>
+      <g filter="url(#oo-soft)"><circle cx="423" cy="641" r="10" fill="rgba(0,229,255,.18)"/><circle cx="423" cy="641" r="5" fill="#00e5ff"/></g>
+      <g filter="url(#oo-soft)"><circle cx="423" cy="259" r="10" fill="rgba(124,58,237,.2)"/><circle cx="423" cy="259" r="5" fill="#7c3aed"/></g>
+      <g filter="url(#oo-soft)"><circle cx="1017" cy="259" r="10" fill="rgba(0,204,136,.18)"/><circle cx="1017" cy="259" r="5" fill="#00cc88"/></g>
+    </g>
+
+    <!-- inner orbit -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0 720 450" to="360 720 450" dur="40s" repeatCount="indefinite"/>
+      <ellipse cx="720" cy="450" rx="270" ry="175" fill="none" stroke="rgba(0,229,255,.12)" stroke-width="1" stroke-dasharray="4,7"/>
+      <g filter="url(#oo-soft)"><circle cx="954" cy="537" r="9" fill="rgba(240,165,0,.18)"/><circle cx="954" cy="537" r="4.5" fill="#f0a500"/></g>
+      <g filter="url(#oo-soft)"><circle cx="486" cy="537" r="9" fill="rgba(0,229,255,.18)"/><circle cx="486" cy="537" r="4.5" fill="#00e5ff"/></g>
+      <g filter="url(#oo-soft)"><circle cx="720" cy="275" r="9" fill="rgba(139,92,246,.2)"/><circle cx="720" cy="275" r="4.5" fill="#8b5cf6"/></g>
+    </g>
+
+    <!-- central OASIS core -->
+    <circle cx="720" cy="450" r="20" fill="rgba(0,229,255,.14)" stroke="#00e5ff" stroke-width="1.5" filter="url(#oo-soft)">
+      <animate attributeName="r" values="20;25;20" dur="3.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="720" cy="450" r="8" fill="#00e5ff" opacity=".85"/>
+    <ellipse cx="720" cy="450" rx="110" ry="74" fill="none" stroke="rgba(0,229,255,.1)" stroke-width="1" stroke-dasharray="8,5">
+      <animateTransform attributeName="transform" type="rotate" from="0 720 450" to="360 720 450" dur="24s" repeatCount="indefinite"/>
+    </ellipse>
+  </svg>
   <div class="logo-ring">
     <svg viewBox="0 0 60 60" fill="none">
       <circle cx="30" cy="30" r="4" fill="#ffffff" style="animation:pulse 2.5s ease-in-out infinite;transform-origin:30px 30px"/>
