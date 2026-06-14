@@ -714,6 +714,24 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
   </div>
 </section>
 
+<!-- ── TORUS LAYER DIAGRAM ── -->
+<section class="section" style="background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(0,229,255,.03) 0%,transparent 70%)">
+  <div class="section-kicker">LAYER ARCHITECTURE</div>
+  <h2 class="section-title">THE OASIS UNIVERSE</h2>
+  <span class="section-line"></span>
+  <p class="section-sub">Five web generations unified in a single ecosystem — from Web1 infrastructure to Web5 metaverse, all converging through the <strong>OASIS API</strong> at the core.</p>
+  <div style="max-width:900px;margin:0 auto 28px;border-radius:16px;overflow:hidden;border:1px solid rgba(0,229,255,.12);background:rgba(3,7,20,.9)">
+    <canvas id="torus-canvas" width="900" height="500" style="width:100%;display:block"></canvas>
+  </div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center">
+    <span style="display:inline-flex;align-items:center;gap:8px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.1em;color:#a78bfa"><span style="width:24px;height:2px;background:#8b5cf6;box-shadow:0 0 5px #8b5cf6;display:inline-block;border-radius:1px"></span>WEB5 / STAR</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.1em;color:#00e5ff"><span style="width:24px;height:2px;background:#00e5ff;box-shadow:0 0 5px #00e5ff;display:inline-block;border-radius:1px"></span>WEB4 / OASIS API</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.1em;color:#00cc88"><span style="width:24px;height:2px;background:#00cc88;box-shadow:0 0 5px #00cc88;display:inline-block;border-radius:1px"></span>WEB3 / COSMIC ORM</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6080e0"><span style="width:24px;height:2px;background:#6080e0;display:inline-block;border-radius:1px"></span>WEB2</span>
+    <span style="display:inline-flex;align-items:center;gap:8px;font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.1em;color:#6a80a8"><span style="width:24px;height:2px;background:#6a80a8;display:inline-block;border-radius:1px"></span>WEB1</span>
+  </div>
+</section>
+
 <!-- ── INFOGRAPHICS ── -->
 <section class="section">
   <div class="section-kicker">THE TECHNOLOGY</div>
@@ -1388,6 +1406,110 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
 </div>
 
 <script>
+// ── TORUS LAYER DIAGRAM ──
+(function(){
+  const canvas = document.getElementById('torus-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W=900, H=500, cx=450, cy=258;
+  const R=160, r=78; // major radius, tube radius
+  let angle=0;
+
+  // Map tube angle phi → RGBA colour string
+  function tubeCol(phi, bright){
+    const s = Math.sin(phi);
+    let c;
+    if(s > 0.65)       c=[155,90,255];   // violet  – Web5/STAR
+    else if(s > 0.2)   c=[60,180,255];   // blue    – transition
+    else if(s > -0.2)  c=[0,229,255];    // cyan    – Web4/OASIS
+    else if(s > -0.6)  c=[0,210,150];    // teal    – Web3/COSMIC ORM
+    else if(s > -0.82) c=[0,180,100];    // green   – Web3
+    else               c=[80,110,190];   // blue-gray – Web2/Web1
+    return `rgba(${c[0]},${c[1]},${c[2]},${bright.toFixed(2)})`;
+  }
+
+  // Parallel projection viewed from slightly above
+  function proj(x,y,z){ return { sx: cx+x, sy: cy - z - y*0.38 }; }
+
+  function render(){
+    ctx.clearRect(0,0,W,H);
+    const NT=80, NP=40;
+    const segs=[];
+
+    // Meridian circles (every 4th theta = 20 rings around the tube)
+    for(let i=0;i<NT;i+=4){
+      const t=angle+(i/NT)*Math.PI*2;
+      for(let j=0;j<NP;j++){
+        const p0=(j/NP)*Math.PI*2, p1=((j+1)/NP)*Math.PI*2;
+        const a={ x:(R+r*Math.cos(p0))*Math.cos(t), y:(R+r*Math.cos(p0))*Math.sin(t), z:r*Math.sin(p0) };
+        const b={ x:(R+r*Math.cos(p1))*Math.cos(t), y:(R+r*Math.cos(p1))*Math.sin(t), z:r*Math.sin(p1) };
+        segs.push({a,b,phi:(p0+p1)/2,depth:a.y+b.y,lw:0.7});
+      }
+    }
+
+    // Latitude circles (every 2nd phi = 20 rings around the main ring)
+    for(let j=0;j<NP;j+=2){
+      const p=(j/NP)*Math.PI*2;
+      for(let i=0;i<NT;i++){
+        const t0=angle+(i/NT)*Math.PI*2, t1=angle+((i+1)/NT)*Math.PI*2;
+        const a={ x:(R+r*Math.cos(p))*Math.cos(t0), y:(R+r*Math.cos(p))*Math.sin(t0), z:r*Math.sin(p) };
+        const b={ x:(R+r*Math.cos(p))*Math.cos(t1), y:(R+r*Math.cos(p))*Math.sin(t1), z:r*Math.sin(p) };
+        segs.push({a,b,phi:p,depth:a.y+b.y,lw:1.1});
+      }
+    }
+
+    // Back-to-front painter's algorithm
+    segs.sort((a,b)=>b.depth-a.depth);
+
+    const maxY=R+r;
+    for(const s of segs){
+      const p0=proj(s.a.x,s.a.y,s.a.z);
+      const p1=proj(s.b.x,s.b.y,s.b.z);
+      const bright=0.06+((s.depth/2+maxY)/(2*maxY))*0.76;
+      ctx.beginPath();
+      ctx.moveTo(p0.sx,p0.sy);
+      ctx.lineTo(p1.sx,p1.sy);
+      ctx.strokeStyle=tubeCol(s.phi,bright);
+      ctx.lineWidth=s.lw;
+      ctx.stroke();
+    }
+
+    labels();
+    angle+=0.005;
+    requestAnimationFrame(render);
+  }
+
+  function lbl(text,x,y,font,color,glow,blur){
+    ctx.save();
+    ctx.font=font; ctx.fillStyle=color;
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    if(blur){ ctx.shadowColor=glow; ctx.shadowBlur=blur; }
+    ctx.fillText(text,x,y);
+    ctx.restore();
+  }
+
+  function labels(){
+    // STAR OMNIVERSE – top
+    lbl('STAR OMNIVERSE',cx,82,'bold 14px Orbitron,sans-serif','rgba(185,150,255,.92)','#8b5cf6',14);
+    lbl('Web5',cx,100,'11px "Share Tech Mono",monospace','rgba(139,92,246,.72)','#8b5cf6',6);
+    // OASIS API – centre hole
+    lbl('OASIS API',cx,cy-6,'bold 17px Orbitron,sans-serif','rgba(0,229,255,.95)','#00e5ff',18);
+    lbl('Web4',cx,cy+13,'11px "Share Tech Mono",monospace','rgba(0,229,255,.65)','#00e5ff',6);
+    // COSMIC ORM – left & right
+    lbl('COSMIC',82,cy-8,'bold 12px Orbitron,sans-serif','rgba(0,210,150,.88)','#00cc88',8);
+    lbl('ORM',82,cy+10,'bold 12px Orbitron,sans-serif','rgba(0,210,150,.88)','#00cc88',8);
+    lbl('COSMIC',W-82,cy-8,'bold 12px Orbitron,sans-serif','rgba(0,210,150,.88)','#00cc88',8);
+    lbl('ORM',W-82,cy+10,'bold 12px Orbitron,sans-serif','rgba(0,210,150,.88)','#00cc88',8);
+    // Web3 – below centre
+    lbl('Web3',cx,cy+54,'11px "Share Tech Mono",monospace','rgba(0,204,136,.72)','#00cc88',5);
+    // Web2 / Web1 – bottom
+    lbl('Web2',cx-80,430,'11px "Share Tech Mono",monospace','rgba(80,128,220,.72)','#4060cc',4);
+    lbl('Web1',cx+80,430,'11px "Share Tech Mono",monospace','rgba(106,128,168,.65)',null,0);
+  }
+
+  render();
+})();
+
 // Open all external links in a new tab
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[href]').forEach(a => {
