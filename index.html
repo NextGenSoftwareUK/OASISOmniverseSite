@@ -1503,6 +1503,51 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
     <p style="color:#a8bfd8;font-size:15px;line-height:1.8;margin-bottom:24px">DeFi & Finance • GameFi & Metaverses • AI Agents & Workflows • DAO Commerce • Supply Chain & Logistics • Healthcare & Identity • Social Networks • Enterprise Systems • And Everything Beyond</p>
     <p style="color:#a8bfd8;font-size:14px;font-style:italic">One ORM. All data. Every world. Infinite future.</p>
   </div>
+
+  <div style="max-width:1100px;margin:60px auto;padding:40px;background:rgba(217,70,239,.05);border:1px solid rgba(217,70,239,.15);border-radius:14px">
+    <h3 style="font-family:'Orbitron',sans-serif;font-size:16px;letter-spacing:.08em;color:var(--heading);text-align:center;margin-bottom:30px;text-transform:uppercase">Real Code Examples</h3>
+
+    <div style="margin-bottom:30px">
+      <h4 style="font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:.08em;color:var(--cyan);margin-bottom:15px;text-transform:uppercase">Create & Save a Game Item via COSMIC ORM</h4>
+      <pre style="background:#0a0515;border:1px solid rgba(0,229,255,.15);border-radius:10px;padding:15px;color:#c0d8ff;font-size:12px;overflow-x:auto;font-family:'Share Tech Mono',monospace;line-height:1.6"><span style="color:var(--cyan)">// Create a new NFT item</span>
+<span style="color:var(--cyan)">var</span> weapon = <span style="color:var(--cyan)">new</span> Weapon() { Name = <span style="color:#00cc88">"Dragon Slayer"</span> };
+weapon.MetaData[<span style="color:#00cc88">"Damage"</span>] = <span style="color:#00cc88">"200"</span>;
+weapon.MetaData[<span style="color:#00cc88">"Rarity"</span>] = <span style="color:#00cc88">"Legendary"</span>;
+
+<span style="color:var(--cyan)">// Save to COSMIC (syncs to 40+ providers instantly)</span>
+<span style="color:var(--cyan)">var</span> result = <span style="color:var(--cyan)">await</span> STAR.OASISAPI.Data.SaveHolonAsync&lt;Weapon&gt;(weapon);
+
+<span style="color:#f0a500">✓ Saved with ID:</span> {result.Result.Id}
+<span style="color:#00cc88">// Item now exists on blockchain, database, storage, everywhere</span></pre>
+    </div>
+
+    <div style="margin-bottom:30px">
+      <h4 style="font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:.08em;color:var(--cyan);margin-bottom:15px;text-transform:uppercase">Search Across All Providers (Query Everything)</h4>
+      <pre style="background:#0a0515;border:1px solid rgba(0,229,255,.15);border-radius:10px;padding:15px;color:#c0d8ff;font-size:12px;overflow-x:auto;font-family:'Share Tech Mono',monospace;line-height:1.6"><span style="color:var(--cyan)">// Find all legendary weapons</span>
+<span style="color:var(--cyan)">var</span> legendary = <span style="color:var(--cyan)">new</span> Dictionary&lt;<span style="color:var(--cyan)">string</span>, <span style="color:var(--cyan)">object</span>&gt;
+{
+    { <span style="color:#00cc88">"Rarity"</span>, <span style="color:#00cc88">"Legendary"</span> }
+};
+
+<span style="color:var(--cyan)">var</span> weapons = <span style="color:var(--cyan)">await</span> STAR.OASISAPI.Data
+    .LoadHolonsByMetaDataAsync&lt;Weapon&gt;(legendary);
+
+<span style="color:#f0a500">✓ Found {weapons.Result.Count()} legendary weapons</span>
+<span style="color:#00cc88">// Searched across MongoDB, Ethereum, Holochain, IPFS, etc.</span></pre>
+    </div>
+
+    <div>
+      <h4 style="font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:.08em;color:var(--cyan);margin-bottom:15px;text-transform:uppercase">Version Control & Audit Trail (Auto-Tracked)</h4>
+      <pre style="background:#0a0515;border:1px solid rgba(0,229,255,.15);border-radius:10px;padding:15px;color:#c0d8ff;font-size:12px;overflow-x:auto;font-family:'Share Tech Mono',monospace;line-height:1.6"><span style="color:var(--cyan)">// Update the weapon (COSMIC auto-tracks)</span>
+weapon.MetaData[<span style="color:#00cc88">"Damage"</span>] = <span style="color:#00cc88">"250"</span>; <span style="color:#5a6a92">// Buff applied</span>
+<span style="color:var(--cyan)">var</span> updated = <span style="color:var(--cyan)">await</span> weapon.SaveAsync&lt;Weapon&gt;();
+
+<span style="color:#f0a500">✓ Version:</span> {updated.Result.Version} <span style="color:#5a6a92">// Auto-incremented</span>
+<span style="color:#f0a500">✓ ModifiedDate:</span> {updated.Result.ModifiedDate}
+<span style="color:#f0a500">✓ PreviousVersionId:</span> {updated.Result.PreviousVersionId}
+<span style="color:#f0a500">✓ Replicated to all providers instantly</span></pre>
+    </div>
+  </div>
 </section>
 
 <!-- ── DEVELOPERS ── -->
