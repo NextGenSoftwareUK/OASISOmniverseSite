@@ -1509,7 +1509,7 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
 
     <div style="margin-bottom:30px">
       <h4 style="font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:.08em;color:var(--cyan);margin-bottom:15px;text-transform:uppercase">Create & Save a Game Item via COSMIC ORM</h4>
-      <pre style="background:#0a0515;border:1px solid rgba(0,229,255,.15);border-radius:10px;padding:15px;color:#c0d8ff;font-size:12px;overflow-x:auto;font-family:'Share Tech Mono',monospace;line-height:1.6"><span style="color:var(--cyan)">// Create a new NFT item</span>
+      <pre style="background:#0a0515;border:1px solid rgba(0,229,255,.15);border-radius:10px;padding:15px;color:#c0d8ff;font-size:12px;overflow-x:auto;font-family:'Share Tech Mono',monospace;line-height:1.6;white-space:pre"><span style="color:var(--cyan)">// Create a new NFT item</span>
 <span style="color:var(--cyan)">var</span> weapon = <span style="color:var(--cyan)">new</span> Weapon() { Name = <span style="color:#00cc88">"Dragon Slayer"</span> };
 weapon.MetaData[<span style="color:#00cc88">"Damage"</span>] = <span style="color:#00cc88">"200"</span>;
 weapon.MetaData[<span style="color:#00cc88">"Rarity"</span>] = <span style="color:#00cc88">"Legendary"</span>;
@@ -1523,7 +1523,7 @@ weapon.MetaData[<span style="color:#00cc88">"Rarity"</span>] = <span style="colo
 
     <div style="margin-bottom:30px">
       <h4 style="font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:.08em;color:var(--cyan);margin-bottom:15px;text-transform:uppercase">Search Across All Providers (Query Everything)</h4>
-      <pre style="background:#0a0515;border:1px solid rgba(0,229,255,.15);border-radius:10px;padding:15px;color:#c0d8ff;font-size:12px;overflow-x:auto;font-family:'Share Tech Mono',monospace;line-height:1.6"><span style="color:var(--cyan)">// Find all legendary weapons</span>
+      <pre style="background:#0a0515;border:1px solid rgba(0,229,255,.15);border-radius:10px;padding:15px;color:#c0d8ff;font-size:12px;overflow-x:auto;font-family:'Share Tech Mono',monospace;line-height:1.6;white-space:pre"><span style="color:var(--cyan)">// Find all legendary weapons</span>
 <span style="color:var(--cyan)">var</span> legendary = <span style="color:var(--cyan)">new</span> Dictionary&lt;<span style="color:var(--cyan)">string</span>, <span style="color:var(--cyan)">object</span>&gt;
 {
     { <span style="color:#00cc88">"Rarity"</span>, <span style="color:#00cc88">"Legendary"</span> }
@@ -1538,7 +1538,7 @@ weapon.MetaData[<span style="color:#00cc88">"Rarity"</span>] = <span style="colo
 
     <div>
       <h4 style="font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:.08em;color:var(--cyan);margin-bottom:15px;text-transform:uppercase">Version Control & Audit Trail (Auto-Tracked)</h4>
-      <pre style="background:#0a0515;border:1px solid rgba(0,229,255,.15);border-radius:10px;padding:15px;color:#c0d8ff;font-size:12px;overflow-x:auto;font-family:'Share Tech Mono',monospace;line-height:1.6"><span style="color:var(--cyan)">// Update the weapon (COSMIC auto-tracks)</span>
+      <pre style="background:#0a0515;border:1px solid rgba(0,229,255,.15);border-radius:10px;padding:15px;color:#c0d8ff;font-size:12px;overflow-x:auto;font-family:'Share Tech Mono',monospace;line-height:1.6;white-space:pre"><span style="color:var(--cyan)">// Update the weapon (COSMIC auto-tracks)</span>
 weapon.MetaData[<span style="color:#00cc88">"Damage"</span>] = <span style="color:#00cc88">"250"</span>; <span style="color:#5a6a92">// Buff applied</span>
 <span style="color:var(--cyan)">var</span> updated = <span style="color:var(--cyan)">await</span> weapon.SaveAsync&lt;Weapon&gt;();
 
