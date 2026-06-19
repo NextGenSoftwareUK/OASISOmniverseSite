@@ -139,8 +139,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);
 .ecosystem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:24px;max-width:1100px;margin:0 auto}
 .eco-card{background:var(--bg-card);border:1px solid rgba(0,229,255,.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s,border-color .3s;will-change:transform}
 .eco-card:hover{transform:translateY(-7px);box-shadow:0 20px 60px rgba(0,229,255,.1);border-color:rgba(0,229,255,.3)}
-.eco-card.founders-card{border-color:rgba(240,165,0,.25);box-shadow:0 0 30px rgba(240,165,0,.07)}
-.eco-card.founders-card:hover{box-shadow:0 20px 60px rgba(240,165,0,.18);border-color:rgba(240,165,0,.45)}
+.eco-card.founders-card{border-color:rgba(245,166,35,.25);box-shadow:0 0 30px rgba(245,166,35,.07)}
+.eco-card.founders-card:hover{box-shadow:0 20px 60px rgba(245,166,35,.18);border-color:rgba(245,166,35,.45)}
 .eco-card.odoom-card{border-color:rgba(255,51,51,.2);box-shadow:0 0 25px rgba(255,51,51,.06)}
 .eco-card.odoom-card:hover{box-shadow:0 20px 60px rgba(255,51,51,.15);border-color:rgba(255,51,51,.4)}
 .eco-card.oquake-card{border-color:rgba(255,170,0,.2);box-shadow:0 0 25px rgba(255,170,0,.06)}
@@ -159,6 +159,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);
 .eco-card.web9-card:hover{box-shadow:0 20px 60px rgba(124,77,255,.15);border-color:rgba(124,77,255,.4)}
 .eco-card.web10-card{border-color:rgba(255,255,255,.15);box-shadow:0 0 32px rgba(255,255,255,.04)}
 .eco-card.web10-card:hover{box-shadow:0 20px 60px rgba(255,255,255,.1);border-color:rgba(255,255,255,.35)}
+.eco-card.odao-card{border-color:rgba(0,204,136,.2);box-shadow:0 0 28px rgba(0,204,136,.06)}
+.eco-card.odao-card:hover{box-shadow:0 20px 60px rgba(0,204,136,.15);border-color:rgba(0,204,136,.4)}
 .eco-card-kicker.red{color:#ff3333}
 .eco-card-link.red{color:#ff3333;border-color:rgba(255,51,51,.25)}
 .eco-card-link.red:hover{background:rgba(255,51,51,.1);border-color:rgba(255,51,51,.5);filter:none}
@@ -204,6 +206,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);
 .eco-card-kicker.luminal{color:rgba(255,255,255,.8)}
 .eco-card-link.luminal{color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.2)}
 .eco-card-link.luminal:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.45);filter:none}
+.eco-card-kicker.odao{color:#00cc88}
+.eco-card-link.odao{color:#00cc88;border-color:rgba(0,204,136,.3)}
+.eco-card-link.odao:hover{background:rgba(0,204,136,.1);border-color:rgba(0,204,136,.55);filter:none}
 .eco-card-kicker.green-world{color:#00a854}
 .eco-card-link.green-world{color:#00a854;border-color:rgba(0,168,84,.25)}
 .eco-card-link.green-world:hover{background:rgba(0,168,84,.1);border-color:rgba(0,168,84,.5);filter:none}
@@ -749,22 +754,37 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
     <div class="feature-item">
       <span class="feature-icon">🏪</span>
       <div class="feature-title">STARNET</div>
-      <div class="feature-desc">The Web5 app and asset store — publish OAPPs, holons and digital assets that work seamlessly across every OASIS-connected world.</div>
+      <div class="feature-desc">The Web5 app and asset store — publish OAPPs, holons and digital assets that work seamlessly across every OASIS-connected world. Browse, search, install and version-control apps with side-by-side versioning and sandboxed previews before you deploy. Creators set freemium tiers, subscriptions, royalties and revenue splits, while players discover new worlds, weapons, quests and cosmetics from one unified storefront that spans the entire omniverse.</div>
     </div>
     <div class="feature-item">
       <span class="feature-icon">⚡</span>
       <div class="feature-title">STAR OAPPS</div>
-      <div class="feature-desc">Build cross-world applications from DNA templates using the STAR CLI/ODK. OAPPs run natively everywhere the OASIS layer exists.</div>
+      <div class="feature-desc">Build cross-world applications from DNA templates using the STAR CLI/ODK. OAPPs run natively everywhere the OASIS layer exists — compiled to native code per platform and provider, with zero rewrites needed when you target a new world. Define your app once as portable DNA, then publish it to STARNET where it instantly becomes available to every connected metaverse, game and service in the ecosystem.</div>
     </div>
     <div class="feature-item">
       <span class="feature-icon">🏆</span>
       <div class="feature-title">SHARED QUESTS</div>
-      <div class="feature-desc">Quests, missions and achievements span all connected metaverses. Complete a mission in OQuake — earn karma in Our World.</div>
+      <div class="feature-desc">Quests, missions and achievements span all connected metaverses. Complete a mission in OQuake — earn karma in Our World. The OGEngine quest graph tracks progress across every world simultaneously, so a single storyline can chain objectives through ODOOM, OQuake and Our World, rewarding players with XP, karma and NFTs that follow them wherever they log in next.</div>
     </div>
     <div class="feature-item">
       <span class="feature-icon">🎒</span>
       <div class="feature-title">UNIVERSAL INVENTORY</div>
-      <div class="feature-desc">Items, NFTs and digital assets earned in any OASIS world are fully portable across the entire omniverse ecosystem.</div>
+      <div class="feature-desc">Items, NFTs and digital assets earned in any OASIS world are fully portable across the entire omniverse ecosystem. Pick up a weapon in OQuake and wield it in ODOOM, or carry karma rewards from Our World into any STAR-connected game. One inventory, synced in real time through OGEngine, means nothing you earn is ever locked to a single app again.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🧬</span>
+      <div class="feature-title">DNA TEMPLATES</div>
+      <div class="feature-desc">Every OAPP, NFT, quest and celestial body in the omniverse starts life as portable DNA — a declarative blueprint that captures structure, metadata and behaviour independent of any single provider. Clone, fork and remix existing DNA to spin up new worlds in minutes, with the STAR CLI/ODK handling compilation, versioning and deployment across every supported platform automatically.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🌐</span>
+      <div class="feature-title">CROSS-WORLD KARMA</div>
+      <div class="feature-desc">Karma earned anywhere in the omniverse counts everywhere. One reputation score, tracked by your OASIS Avatar, accumulates from real-world positive actions in Our World, frags in OQuake and ODOOM, and quest completions across every connected experience — giving players a single, persistent identity that grows in value the more of the ecosystem they explore.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🔐</span>
+      <div class="feature-title">AVATAR SSO</div>
+      <div class="feature-desc">Sign in once with your OASIS Avatar and you're authenticated everywhere — every game, app and service on every device and platform. No new accounts, no re-linking wallets, no fragmented identities. STAR and OGEngine handle session, token and provider negotiation behind the scenes, so developers get secure cross-world login for free, out of the box.</div>
     </div>
   </div>
 </section>
@@ -1102,6 +1122,7 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
   <div class="section-kicker">THE ECOSYSTEM</div>
   <h2 class="section-title">EXPLORE THE OMNIVERSE</h2>
   <span class="section-line"></span>
+  <h3 style="font-family:'Orbitron',sans-serif;font-size:16px;letter-spacing:.18em;color:var(--cyan);text-align:center;margin:0 0 32px;text-transform:uppercase">Core Platform</h3>
   <div class="ecosystem-grid">
         <div class="eco-card web4-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#000a14,#001020);gap:10px">
@@ -1426,6 +1447,68 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
     </div>
 
 
+    <div class="eco-card">
+      <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0c1a3a,#102550);gap:14px">
+        <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="42.6,18 27,9 11.4,18 11.4,36 27,45 42.6,36" stroke="#3b82f6" stroke-width="1.2" fill="none"/>
+          <polygon points="34.8,22.5 27,18 19.2,22.5 19.2,31.5 27,36 34.8,31.5" stroke="#3b82f6" stroke-width="0.6" fill="none" opacity="0.4"/>
+          <line x1="27" y1="27" x2="42.6" y2="18" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
+          <line x1="27" y1="27" x2="27" y2="9" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
+          <line x1="27" y1="27" x2="11.4" y2="18" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
+          <line x1="27" y1="27" x2="11.4" y2="36" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
+          <line x1="27" y1="27" x2="27" y2="45" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
+          <line x1="27" y1="27" x2="42.6" y2="36" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
+          <circle cx="27" cy="27" r="3" fill="#3b82f6"/>
+          <circle cx="42.6" cy="18" r="1.8" fill="#3b82f6" opacity="0.7"/>
+          <circle cx="27" cy="9" r="1.8" fill="#3b82f6" opacity="0.7"/>
+          <circle cx="11.4" cy="18" r="1.8" fill="#3b82f6" opacity="0.7"/>
+          <circle cx="11.4" cy="36" r="1.8" fill="#3b82f6" opacity="0.7"/>
+          <circle cx="27" cy="45" r="1.8" fill="#3b82f6" opacity="0.7"/>
+          <circle cx="42.6" cy="36" r="1.8" fill="#3b82f6" opacity="0.7"/>
+        </svg>
+        <div style="font-family:'Orbitron',sans-serif;font-size:15px;font-weight:700;letter-spacing:.15em;color:#3b82f6;text-shadow:0 0 18px rgba(59,130,246,.5)">HOLONET</div>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em;color:#3b82f6;opacity:0.75">P2P NETWORKING</div>
+      </div>
+      <div class="eco-card-body">
+        <div class="eco-card-kicker teal-p2p">P2P NETWORKING</div>
+        <div class="eco-card-title">HOLONET</div>
+        <div class="eco-card-desc">The OASIS Holochain integration layer. HoloNET Client, ORM, API and Manager — connect any .NET application to the Holochain peer-to-peer network.</div>
+        <a href="https://holonet.oasisomniverse.one" class="eco-card-link teal-p2p" target="_blank" rel="noopener">EXPLORE HOLONET →</a>
+      </div>
+    </div>
+    <div class="eco-card founders-card">
+      <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#080500,#120a00);gap:13px">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Diamond gem shape -->
+          <polygon points="28,4 52,21 28,54 4,21" stroke="#f5a623" stroke-width="1.5" fill="none" opacity="0.8"/>
+          <!-- Upper facets -->
+          <line x1="28" y1="4"  x2="16" y2="21" stroke="#f5a623" stroke-width="0.9" opacity="0.5"/>
+          <line x1="28" y1="4"  x2="40" y2="21" stroke="#f5a623" stroke-width="0.9" opacity="0.5"/>
+          <!-- Girdle line -->
+          <line x1="4"  y1="21" x2="52" y2="21" stroke="#f5a623" stroke-width="0.8" opacity="0.45"/>
+          <!-- Lower facets -->
+          <line x1="16" y1="21" x2="28" y2="54" stroke="#f5a623" stroke-width="0.7" opacity="0.35"/>
+          <line x1="40" y1="21" x2="28" y2="54" stroke="#f5a623" stroke-width="0.7" opacity="0.35"/>
+          <line x1="4"  y1="21" x2="28" y2="54" stroke="#f5a623" stroke-width="0.6" opacity="0.2"/>
+          <line x1="52" y1="21" x2="28" y2="54" stroke="#f5a623" stroke-width="0.6" opacity="0.2"/>
+          <!-- Centre sparkle -->
+          <circle cx="28" cy="21" r="2.5" fill="#f5a623" opacity="0.85"/>
+          <circle cx="28" cy="21" r="5"   stroke="#f5a623" stroke-width="0.5" fill="none" opacity="0.3"/>
+        </svg>
+        <div style="font-family:'Orbitron',sans-serif;font-size:18px;font-weight:900;letter-spacing:0.2em;color:#f5a623;text-shadow:0 0 18px rgba(245,166,35,.5)">FOUNDERS</div>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.3em;color:#f5a623;opacity:0.7">NFT COLLECTION</div>
+      </div>
+      <div class="eco-card-body">
+        <div class="eco-card-kicker gold">FOUNDERS · NFT CAMPAIGN</div>
+        <div class="eco-card-title">BECOME A FOUNDER</div>
+        <div class="eco-card-desc">170 founder slots — ever. Own a piece of the omniverse and receive lifetime access, governance rights & many more perks across the ecosystem.</div>
+        <a href="https://founders.oasisomniverse.one" class="eco-card-link gold" target="_blank" rel="noopener">EXPLORE FOUNDER TIERS →</a>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Orbitron',sans-serif;font-size:16px;letter-spacing:.18em;color:var(--cyan);text-align:center;margin:64px 0 32px;text-transform:uppercase">Core OAPPs</h3>
+  <div class="ecosystem-grid">
     <div class="eco-card odoom-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0e0000,#200500);gap:14px">
         <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1494,62 +1577,21 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
         <a href="https://ourworld.oasisomniverse.one" class="eco-card-link green-world" target="_blank" rel="noopener">EXPLORE OUR WORLD →</a>
       </div>
     </div>
-    <div class="eco-card">
-      <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0c1a3a,#102550);gap:14px">
-        <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="42.6,18 27,9 11.4,18 11.4,36 27,45 42.6,36" stroke="#3b82f6" stroke-width="1.2" fill="none"/>
-          <polygon points="34.8,22.5 27,18 19.2,22.5 19.2,31.5 27,36 34.8,31.5" stroke="#3b82f6" stroke-width="0.6" fill="none" opacity="0.4"/>
-          <line x1="27" y1="27" x2="42.6" y2="18" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
-          <line x1="27" y1="27" x2="27" y2="9" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
-          <line x1="27" y1="27" x2="11.4" y2="18" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
-          <line x1="27" y1="27" x2="11.4" y2="36" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
-          <line x1="27" y1="27" x2="27" y2="45" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
-          <line x1="27" y1="27" x2="42.6" y2="36" stroke="#3b82f6" stroke-width="0.5" opacity="0.3"/>
-          <circle cx="27" cy="27" r="3" fill="#3b82f6"/>
-          <circle cx="42.6" cy="18" r="1.8" fill="#3b82f6" opacity="0.7"/>
-          <circle cx="27" cy="9" r="1.8" fill="#3b82f6" opacity="0.7"/>
-          <circle cx="11.4" cy="18" r="1.8" fill="#3b82f6" opacity="0.7"/>
-          <circle cx="11.4" cy="36" r="1.8" fill="#3b82f6" opacity="0.7"/>
-          <circle cx="27" cy="45" r="1.8" fill="#3b82f6" opacity="0.7"/>
-          <circle cx="42.6" cy="36" r="1.8" fill="#3b82f6" opacity="0.7"/>
-        </svg>
-        <div style="font-family:'Orbitron',sans-serif;font-size:15px;font-weight:700;letter-spacing:.15em;color:#3b82f6;text-shadow:0 0 18px rgba(59,130,246,.5)">HOLONET</div>
-        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:.2em;color:#3b82f6;opacity:0.75">P2P NETWORKING</div>
-      </div>
-      <div class="eco-card-body">
-        <div class="eco-card-kicker teal-p2p">P2P NETWORKING</div>
-        <div class="eco-card-title">HOLONET</div>
-        <div class="eco-card-desc">The OASIS Holochain integration layer. HoloNET Client, ORM, API and Manager — connect any .NET application to the Holochain peer-to-peer network.</div>
-        <a href="https://holonet.oasisomniverse.one" class="eco-card-link teal-p2p" target="_blank" rel="noopener">EXPLORE HOLONET →</a>
-      </div>
-    </div>
-    <div class="eco-card founders-card">
-      <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#080500,#120a00);gap:13px">
+    <div class="eco-card odao-card">
+      <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#020f0a,#041a10);gap:13px">
         <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Diamond gem shape -->
-          <polygon points="28,4 52,21 28,54 4,21" stroke="#f5a623" stroke-width="1.5" fill="none" opacity="0.8"/>
-          <!-- Upper facets -->
-          <line x1="28" y1="4"  x2="16" y2="21" stroke="#f5a623" stroke-width="0.9" opacity="0.5"/>
-          <line x1="28" y1="4"  x2="40" y2="21" stroke="#f5a623" stroke-width="0.9" opacity="0.5"/>
-          <!-- Girdle line -->
-          <line x1="4"  y1="21" x2="52" y2="21" stroke="#f5a623" stroke-width="0.8" opacity="0.45"/>
-          <!-- Lower facets -->
-          <line x1="16" y1="21" x2="28" y2="54" stroke="#f5a623" stroke-width="0.7" opacity="0.35"/>
-          <line x1="40" y1="21" x2="28" y2="54" stroke="#f5a623" stroke-width="0.7" opacity="0.35"/>
-          <line x1="4"  y1="21" x2="28" y2="54" stroke="#f5a623" stroke-width="0.6" opacity="0.2"/>
-          <line x1="52" y1="21" x2="28" y2="54" stroke="#f5a623" stroke-width="0.6" opacity="0.2"/>
-          <!-- Centre sparkle -->
-          <circle cx="28" cy="21" r="2.5" fill="#f5a623" opacity="0.85"/>
-          <circle cx="28" cy="21" r="5"   stroke="#f5a623" stroke-width="0.5" fill="none" opacity="0.3"/>
+          <circle cx="28" cy="28" r="22" stroke="#00cc88" stroke-width="3.5" opacity="0.9"/>
+          <circle cx="28" cy="28" r="22" stroke="#f0a500" stroke-width="1.5" stroke-dasharray="5 8" opacity="0.7"/>
+          <path d="M28 13 Q39 21 28 28 Q17 35 28 43" stroke="#00cc88" stroke-width="3" fill="none" stroke-linecap="round"/>
         </svg>
-        <div style="font-family:'Orbitron',sans-serif;font-size:18px;font-weight:900;letter-spacing:0.2em;color:#f5a623;text-shadow:0 0 18px rgba(245,166,35,.5)">FOUNDERS</div>
-        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.3em;color:#f5a623;opacity:0.7">NFT COLLECTION</div>
+        <div style="font-family:'Orbitron',sans-serif;font-size:21px;font-weight:900;letter-spacing:0.2em;color:#fff;text-shadow:0 0 18px rgba(0,204,136,.6)">ODAO</div>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:0.28em;color:#00cc88;opacity:0.85">KARMA OVER CAPITAL</div>
       </div>
       <div class="eco-card-body">
-        <div class="eco-card-kicker gold">FOUNDERS · NFT CAMPAIGN</div>
-        <div class="eco-card-title">BECOME A FOUNDER</div>
-        <div class="eco-card-desc">170 founder slots — ever. Own a piece of the omniverse and receive lifetime access, governance rights & many more perks across the ecosystem.</div>
-        <a href="https://founders.oasisomniverse.one" class="eco-card-link gold" target="_blank" rel="noopener">EXPLORE FOUNDER TIERS →</a>
+        <div class="eco-card-kicker odao">KARMA · GOVERNANCE</div>
+        <div class="eco-card-title">ODAO</div>
+        <div class="eco-card-desc">A karma-based governance system where influence is earned through positive real-world impact — not bought with money. Fuelled by the same Karma Score earned across Our World, OQuake, ODOOM and the whole omniverse.</div>
+        <a href="https://odao.oasisomniverse.one" class="eco-card-link odao" target="_blank" rel="noopener">EXPLORE ODAO →</a>
       </div>
     </div>
   </div>
@@ -1643,7 +1685,7 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
   <div class="section-kicker">UNIVERSAL CONNECTIVITY</div>
   <h2 class="section-title">The Interoperability Layer</h2>
   <span class="section-line"></span>
-  <p class="section-sub">OASIS bridges every technology platform into one seamless network. Web2 systems, Web5 ecosystems, blockchains, databases, APIs, cloud services, IoT devices, and off-chain infrastructure all work together as one coordinated whole.</p>
+  <p class="section-sub">OASIS bridges every technology platform into one seamless network. Web2 systems, Web3 blockchains and NFTs, Web4 identity and data, Web5 ecosystems, databases, APIs, cloud services, IoT devices, and off-chain infrastructure all work together as one coordinated whole.</p>
   <div class="features-grid" style="margin-top:50px">
     <div class="feature-item">
       <span class="feature-icon">🌐</span>
@@ -1674,6 +1716,16 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
       <span class="feature-icon">🔗</span>
       <div class="feature-title">OFF-CHAIN SYSTEMS</div>
       <div class="feature-desc">Traditional enterprise systems, legacy infrastructure, and proprietary platforms all accessible as part of the unified OASIS network.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🤖</span>
+      <div class="feature-title">AI AGENTS &amp; MCP</div>
+      <div class="feature-desc">Claude, GPT-5, Gemini, and any MCP-compatible agent connects directly to the OASIS platform via WEB6 — one protocol to reach all AI and all data.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🥽</span>
+      <div class="feature-title">AR / VR PLATFORMS</div>
+      <div class="feature-desc">Unity, Unreal, WebXR, and spatial computing platforms integrated via OGEngine — shared quests, universal inventory and karma across every virtual world.</div>
     </div>
   </div>
 </section>
@@ -1715,6 +1767,16 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
       <div class="feature-title">POWERED BY COMMUNITY</div>
       <div class="feature-desc">Built by the community, for the community. Everyone has a voice and a stake.</div>
     </div>
+    <div class="feature-item">
+      <span class="feature-icon">🔐</span>
+      <div class="feature-title">SOVEREIGN IDENTITY</div>
+      <div class="feature-desc">Your avatar, your data, your karma — owned by you alone. No platform can take it away or lock you out.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🌱</span>
+      <div class="feature-title">BUILT TO LAST</div>
+      <div class="feature-desc">Decentralised, open-source and protocol-level — designed to outlive any single organisation, trend or technology cycle.</div>
+    </div>
   </div>
 </section>
 
@@ -1753,7 +1815,7 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
     </div>
   </div>
 
-  <h3 style="font-family:'Orbitron',sans-serif;font-size:18px;letter-spacing:.08em;color:var(--heading);text-align:center;margin:60px 0 40px;text-transform:uppercase">The Five Pillars</h3>
+  <h3 style="font-family:'Orbitron',sans-serif;font-size:18px;letter-spacing:.08em;color:var(--heading);text-align:center;margin:60px 0 40px;text-transform:uppercase">The Eight Pillars</h3>
   <div class="features-grid">
     <div class="feature-item">
       <span class="feature-icon">🌐</span>
@@ -1784,6 +1846,16 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
       <span class="feature-icon">⚡</span>
       <div class="feature-title">HIGH PERFORMANCE</div>
       <div class="feature-desc">Massively parallel, ultra-low latency, handles millions of ops per second.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🛡️</span>
+      <div class="feature-title">SOVEREIGN DATA OWNERSHIP</div>
+      <div class="feature-desc">Every user owns their data outright. No platform lock-in, no silent harvesting — your keys, your records, always.</div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">🔄</span>
+      <div class="feature-title">PROVIDER AGNOSTIC</div>
+      <div class="feature-desc">Swap storage, chain or cloud provider at any time with zero code changes. COSMIC ORM abstracts every dependency away.</div>
     </div>
   </div>
 
