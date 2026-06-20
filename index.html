@@ -251,7 +251,7 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
 .footer-cols{display:flex;justify-content:center;flex-wrap:wrap;gap:40px;margin-bottom:36px;text-align:left}
 .footer-col h4{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.22em;color:var(--cyan);margin-bottom:14px}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.footer-col a{font-size:15px;color:#a8bfd8;transition:color .2s}
+.footer-col a{font-size:15px;color:#a8bfd8;transition:filter .3s ease,color .3s ease}
 .footer a:hover{color:var(--cyan);filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(0,229,255,.8)) drop-shadow(0 0 40px rgba(0,229,255,.4))}
 .footer-copy{font-size:12px;color:#a8bfd8;margin-top:8px}
 
@@ -749,7 +749,7 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
     <div class="feature-item">
       <span class="feature-icon">🔫</span>
       <div class="feature-title">OQUAKE</div>
-      <div class="feature-desc">Quake reimagined as a fully omniverse-native STAR OAPP — your legendary frag count and arsenal are native to OASIS itself. Your Avatar, karma, weapons and achievements seamlessly integrate with ODOOM and Our World. Earn cross-world NFT rewards, share inventory across all connected games, and watch your reputation grow across the entire ecosystem. Fast-paced arena combat in the connected metaverse.</div>
+      <div class="feature-desc">Quake reimagined as a fully omniverse-native STAR OAPP — your legendary frag count and arsenal are native to OASIS itself. Your Avatar, karma, weapons and achievements seamlessly integrate with ODOOM and Our World. Earn cross-world NFT rewards, share inventory across all connected games, and watch your reputation grow across the entire ecosystem. Fast-paced combat in the connected metaverse.</div>
     </div>
     <div class="feature-item">
       <span class="feature-icon">🏪</span>
@@ -1596,7 +1596,13 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
     </div>
     <div class="eco-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a0a15,#151020);gap:13px">
-        <div style="font-size:48px">🌍</div>
+        <svg width="50" height="50" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="27" cy="29" r="19" stroke="#64c8ff" stroke-width="1.2" fill="rgba(100,200,255,.08)"/>
+          <ellipse cx="27" cy="29" rx="19" ry="7" stroke="#64c8ff" stroke-width="0.7" opacity="0.4"/>
+          <ellipse cx="27" cy="29" rx="10" ry="19" stroke="#64c8ff" stroke-width="0.6" opacity="0.35"/>
+          <path d="M27,4 L31,12 L27,16 L23,12 Z" fill="#64c8ff" opacity="0.85"/>
+          <circle cx="27" cy="9" r="1.3" fill="#fff" opacity="0.9"/>
+        </svg>
         <div style="font-family:'Orbitron',sans-serif;font-size:16px;font-weight:900;letter-spacing:0.18em;color:#fff;text-shadow:0 0 18px rgba(100,200,255,.5)">ONE WORLD</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#64c8ff;opacity:0.7">OPEN WORLD MMORPG</div>
       </div>
@@ -1609,7 +1615,11 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
     </div>
     <div class="eco-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f0a08,#1a1410);gap:13px">
-        <div style="font-size:48px">🐾</div>
+        <svg width="50" height="50" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10,32 Q27,40 44,32 L40,42 Q27,46 14,42 Z" stroke="#c89664" stroke-width="1.3" fill="rgba(200,150,100,.12)"/>
+          <line x1="27" y1="32" x2="27" y2="14" stroke="#c89664" stroke-width="1.2"/>
+          <path d="M27,14 C24,18 18,18 18,23 C18,27 22,29 27,26 C32,29 36,27 36,23 C36,18 30,18 27,14 Z" stroke="#c89664" stroke-width="1.1" fill="rgba(200,150,100,.15)"/>
+        </svg>
         <div style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(200,150,100,.5)">NOAH'S ARK</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#c89664;opacity:0.7">ANIMAL RESCUE</div>
       </div>
@@ -1622,7 +1632,17 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
     </div>
     <div class="eco-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a1008,#101810);gap:13px">
-        <div style="font-size:48px">💚</div>
+        <svg width="50" height="50" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M27,38 C14,29 14,18 22,15 C25,14 27,17 27,17 C27,17 29,14 32,15 C40,18 40,29 27,38 Z" stroke="#64c864" stroke-width="1.3" fill="rgba(100,200,100,.14)"/>
+          <line x1="27" y1="27" x2="10" y2="14" stroke="#64c864" stroke-width="0.6" opacity="0.4"/>
+          <line x1="27" y1="27" x2="44" y2="14" stroke="#64c864" stroke-width="0.6" opacity="0.4"/>
+          <line x1="27" y1="27" x2="8" y2="34" stroke="#64c864" stroke-width="0.6" opacity="0.4"/>
+          <line x1="27" y1="27" x2="46" y2="34" stroke="#64c864" stroke-width="0.6" opacity="0.4"/>
+          <circle cx="10" cy="14" r="1.6" fill="#64c864" opacity="0.8"/>
+          <circle cx="44" cy="14" r="1.6" fill="#64c864" opacity="0.8"/>
+          <circle cx="8" cy="34" r="1.6" fill="#64c864" opacity="0.8"/>
+          <circle cx="46" cy="34" r="1.6" fill="#64c864" opacity="0.8"/>
+        </svg>
         <div style="font-family:'Orbitron',sans-serif;font-size:13px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(100,200,100,.5)">GLOBAL HEALING</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#64c864;opacity:0.7">HEALERS NETWORK</div>
       </div>
@@ -1635,7 +1655,14 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
     </div>
     <div class="eco-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a080f,#15101a);gap:13px">
-        <div style="font-size:48px">📘</div>
+        <svg width="50" height="50" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M27,16 C22,13 14,13 9,15 L9,40 C14,38 22,38 27,41 C32,38 40,38 45,40 L45,15 C40,13 32,13 27,16 Z" stroke="#9664c8" stroke-width="1.2" fill="rgba(150,100,200,.1)"/>
+          <line x1="27" y1="16" x2="27" y2="41" stroke="#9664c8" stroke-width="0.8" opacity="0.45"/>
+          <circle cx="17" cy="24" r="1.3" fill="#9664c8" opacity="0.8"/>
+          <circle cx="37" cy="24" r="1.3" fill="#9664c8" opacity="0.8"/>
+          <circle cx="17" cy="31" r="1.3" fill="#9664c8" opacity="0.6"/>
+          <circle cx="37" cy="31" r="1.3" fill="#9664c8" opacity="0.6"/>
+        </svg>
         <div style="font-family:'Orbitron',sans-serif;font-size:15px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(150,100,200,.5)">GRACEBOOK</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#9664c8;opacity:0.7">CONSCIOUS NETWORK</div>
       </div>
@@ -1648,7 +1675,11 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
     </div>
     <div class="eco-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#080a0f,#101520);gap:13px">
-        <div style="font-size:48px">🧘</div>
+        <svg width="50" height="50" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="27" cy="16" r="5" stroke="#6496ff" stroke-width="1.3" fill="rgba(100,150,255,.12)"/>
+          <path d="M27,21 C27,21 18,25 16,33 C15,37 18,38 20,35 C22,32 24,30 27,30 C30,30 32,32 34,35 C36,38 39,37 38,33 C36,25 27,21 27,21 Z" stroke="#6496ff" stroke-width="1.2" fill="rgba(100,150,255,.1)"/>
+          <path d="M14,40 C20,36 34,36 40,40" stroke="#6496ff" stroke-width="1" opacity="0.5" fill="none"/>
+        </svg>
         <div style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(100,150,255,.5)">YOGA4AUTISM</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#6496ff;opacity:0.7">WELLNESS PARTNER</div>
       </div>
@@ -1661,7 +1692,10 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
     </div>
     <div class="eco-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f0808,#1a1010);gap:13px">
-        <div style="font-size:48px">🦸</div>
+        <svg width="50" height="50" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M27,6 L44,12 L44,28 C44,38 36,45 27,48 C18,45 10,38 10,28 L10,12 Z" stroke="#ff6464" stroke-width="1.3" fill="rgba(255,100,100,.1)"/>
+          <path d="M27,18 L30,25 L37,26 L32,31 L33,38 L27,34 L21,38 L22,31 L17,26 L24,25 Z" fill="#ff6464" opacity="0.75"/>
+        </svg>
         <div style="font-family:'Orbitron',sans-serif;font-size:12px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(255,100,100,.5)">JUSTICE LEAGUE</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#ff6464;opacity:0.7">ACADEMY</div>
       </div>
@@ -1681,85 +1715,132 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
   <div class="ecosystem-grid">
     <div class="eco-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a0f0a,#101810);gap:13px">
-        <div style="font-size:44px">🧘‍♀️</div>
+        <svg width="48" height="48" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M27,30 C20,30 15,24 15,17 C22,17 27,22 27,30 Z" stroke="#00c864" stroke-width="1.1" fill="rgba(0,200,100,.12)"/>
+          <path d="M27,30 C34,30 39,24 39,17 C32,17 27,22 27,30 Z" stroke="#00c864" stroke-width="1.1" fill="rgba(0,200,100,.12)"/>
+          <path d="M27,30 C23,30 19,25 20,19 C26,20 28,25 27,30 Z" stroke="#00c864" stroke-width="1" fill="rgba(0,200,100,.15)"/>
+          <path d="M27,30 C31,30 35,25 34,19 C28,20 26,25 27,30 Z" stroke="#00c864" stroke-width="1" fill="rgba(0,200,100,.15)"/>
+          <path d="M27,30 C24,30 22,26 24,22 C27,24 28,27 27,30 Z" stroke="#00c864" stroke-width="0.9" fill="rgba(0,200,100,.18)"/>
+          <path d="M27,30 C30,30 32,26 30,22 C27,24 26,27 27,30 Z" stroke="#00c864" stroke-width="0.9" fill="rgba(0,200,100,.18)"/>
+          <ellipse cx="27" cy="38" rx="14" ry="3.5" stroke="#00c864" stroke-width="1" opacity="0.4" fill="none"/>
+        </svg>
         <div style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(0,200,100,.5)">BE MINDFUL</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#00c864;opacity:0.7">WELLNESS</div>
       </div>
       <div class="eco-card-body">
-        <div class="eco-card-kicker" style="color:#00c864">MINDFULNESS · WELLNESS</div>
+        <div class="eco-card-kicker" style="color:#00c864">MINDFULNESS · KARMA POWERED</div>
         <div class="eco-card-title">BE MINDFUL</div>
-        <div class="eco-card-desc">Daily mindfulness and meditation exercises supporting mental health and well-being across the OASIS ecosystem.</div>
-        <a href="#" class="eco-card-link" style="color:#00c864;border-color:rgba(0,200,100,.3)" target="_blank" rel="noopener">LEARN MORE →</a>
+        <div class="eco-card-desc">Daily mindfulness and meditation exercises supporting mental health and well-being. Earn karma the more you meditate and practice mindfulness across the OASIS ecosystem.</div>
+        <a href="#" class="eco-card-link" style="color:#00c864;border-color:rgba(0,200,100,.3)" target="_blank" rel="noopener">COMING SOON →</a>
       </div>
     </div>
     <div class="eco-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f0a08,#1a1410);gap:13px">
-        <div style="font-size:44px">☀️</div>
+        <svg width="48" height="48" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="33" cy="16" r="9" stroke="#c89600" stroke-width="1.2" fill="rgba(200,150,0,.12)"/>
+          <line x1="33" y1="3" x2="33" y2="6" stroke="#c89600" stroke-width="1.2" opacity="0.7"/>
+          <line x1="44" y1="7" x2="42" y2="9" stroke="#c89600" stroke-width="1.2" opacity="0.7"/>
+          <line x1="47" y1="16" x2="44" y2="16" stroke="#c89600" stroke-width="1.2" opacity="0.7"/>
+          <path d="M12,38 C8,38 5,35 5,31 C5,27 8,25 11,25 C12,20 17,17 22,18 C25,14 32,14 35,19 C40,18 44,22 43,27 C46,28 47,32 44,35 C42,38 39,38 36,38 Z" stroke="#c89600" stroke-width="1.2" fill="rgba(200,150,0,.16)"/>
+        </svg>
         <div style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(200,150,0,.5)">SILVER LINING</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#c89600;opacity:0.7">POSITIVE NEWS</div>
       </div>
       <div class="eco-card-body">
-        <div class="eco-card-kicker" style="color:#c89600">POSITIVITY · CURATION</div>
+        <div class="eco-card-kicker" style="color:#c89600">POSITIVITY · KARMA POWERED</div>
         <div class="eco-card-title">SILVER LINING</div>
-        <div class="eco-card-desc">Curated collection of positive news and uplifting stories from around the world.</div>
-        <a href="#" class="eco-card-link" style="color:#c89600;border-color:rgba(200,150,0,.3)" target="_blank" rel="noopener">DISCOVER →</a>
+        <div class="eco-card-desc">Find the good in every situation. Share your challenges and let the community help you discover the positive side and actionable solutions. Earn karma for helping others with useful tips and active help to turn things around.</div>
+        <a href="#" class="eco-card-link" style="color:#c89600;border-color:rgba(200,150,0,.3)" target="_blank" rel="noopener">COMING SOON →</a>
       </div>
     </div>
     <div class="eco-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a080f,#15101a);gap:13px">
-        <div style="font-size:44px">📖</div>
-        <div style="font-family:'Orbitron',sans-serif;font-size:12px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(150,100,200,.5)">NEXTGEN</div>
+        <svg width="48" height="48" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="34" height="34" stroke="#9664c8" stroke-width="1.2" fill="none"/>
+          <line x1="21.3" y1="10" x2="21.3" y2="44" stroke="#9664c8" stroke-width="0.8" opacity="0.5"/>
+          <line x1="32.6" y1="10" x2="32.6" y2="44" stroke="#9664c8" stroke-width="0.8" opacity="0.5"/>
+          <line x1="10" y1="21.3" x2="44" y2="21.3" stroke="#9664c8" stroke-width="0.8" opacity="0.5"/>
+          <line x1="10" y1="32.6" x2="44" y2="32.6" stroke="#9664c8" stroke-width="0.8" opacity="0.5"/>
+          <rect x="10" y="10" width="11.3" height="11.3" fill="#9664c8" opacity="0.35"/>
+          <rect x="32.6" y="21.3" width="11.4" height="11.3" fill="#9664c8" opacity="0.35"/>
+          <rect x="10" y="32.6" width="11.3" height="11.4" fill="#9664c8" opacity="0.35"/>
+        </svg>
+        <div style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(150,100,200,.5)">MINDFUL</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#9664c8;opacity:0.7">CROSSWORDS</div>
       </div>
       <div class="eco-card-body">
-        <div class="eco-card-kicker" style="color:#9664c8">PUZZLES · BRAIN TRAINING</div>
-        <div class="eco-card-title">NEXTGEN CROSSWORDS</div>
-        <div class="eco-card-desc">Daily crossword puzzles and word games designed to stimulate and challenge the mind.</div>
-        <a href="#" class="eco-card-link" style="color:#9664c8;border-color:rgba(150,100,200,.3)" target="_blank" rel="noopener">PLAY NOW →</a>
+        <div class="eco-card-kicker" style="color:#9664c8">PUZZLES · MINDFULNESS</div>
+        <div class="eco-card-title">MINDFUL CROSSWORDS</div>
+        <div class="eco-card-desc">Daily crossword puzzles and word games designed to stimulate and challenge the mind. Built on <a href="https://ogengine.oasisomniverse.one" style="color:#9664c8;text-decoration:underline" target="_blank">OGEngine</a> for full OASIS integration and shared progression.</div>
+        <a href="#" class="eco-card-link" style="color:#9664c8;border-color:rgba(150,100,200,.3)" target="_blank" rel="noopener">COMING SOON →</a>
       </div>
     </div>
     <div class="eco-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f0808,#1a1010);gap:13px">
-        <div style="font-size:44px">⚔️</div>
+        <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M27,4 L31,17 L50,38 L36,33 L34,46 L40,51 L27,46 L14,51 L20,46 L18,33 L4,38 L23,17 Z" stroke="#ff6464" stroke-width="1.3" fill="rgba(255,100,100,.14)" stroke-linejoin="round"/>
+          <ellipse cx="27" cy="15" rx="2.4" ry="4.5" fill="#ff6464" opacity="0.55"/>
+          <line x1="27" y1="19" x2="27" y2="40" stroke="#ff6464" stroke-width="0.6" opacity="0.4"/>
+          <circle cx="20" cy="46" r="1.6" fill="#ffaa00" opacity="0.85"/>
+          <circle cx="34" cy="46" r="1.6" fill="#ffaa00" opacity="0.85"/>
+        </svg>
         <div style="font-family:'Orbitron',sans-serif;font-size:13px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(255,100,100,.5)">SHADOW FIGHTER</div>
-        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#ff6464;opacity:0.7">ACTION GAME</div>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#ff6464;opacity:0.7">SHOOT EM UP</div>
       </div>
       <div class="eco-card-body">
-        <div class="eco-card-kicker" style="color:#ff6464">ACTION · COMBAT</div>
+        <div class="eco-card-kicker" style="color:#ff6464">CLASSIC · SHOOT EM UP</div>
         <div class="eco-card-title">SHADOW FIGHTER</div>
-        <div class="eco-card-desc">Fast-paced combat game with shadow-based mechanics and integrated OASIS avatar system.</div>
-        <a href="#" class="eco-card-link" style="color:#ff6464;border-color:rgba(255,100,100,.3)" target="_blank" rel="noopener">PLAY →</a>
+        <div class="eco-card-desc">A legendary 2D parallax scrolling shoot em up inspired by Raiden. The founder's university final year project from 2002 where he taught himself low-level C++ and DirectX, built the DAVE engine, and solo-created the game, levels, graphics, music and full documentation. Coming to <a href="https://ogengine.oasisomniverse.one" style="color:#ff6464" target="_blank">OGEngine</a> for full OASIS integration.</div>
+        <a href="#" class="eco-card-link" style="color:#ff6464;border-color:rgba(255,100,100,.3)" target="_blank" rel="noopener">COMING SOON →</a>
       </div>
     </div>
     <div class="eco-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f0808,#1a1010);gap:13px">
-        <div style="font-size:44px">⚔️</div>
+        <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M27,4 L31,17 L50,38 L36,33 L34,46 L40,51 L27,46 L14,51 L20,46 L18,33 L4,38 L23,17 Z" stroke="#ff6464" stroke-width="1.3" fill="rgba(255,100,100,.14)" stroke-linejoin="round"/>
+          <ellipse cx="27" cy="15" rx="2.4" ry="4.5" fill="#ff6464" opacity="0.55"/>
+          <line x1="27" y1="19" x2="27" y2="40" stroke="#ff6464" stroke-width="0.6" opacity="0.4"/>
+          <circle cx="20" cy="46" r="1.6" fill="#ffaa00" opacity="0.85"/>
+          <circle cx="34" cy="46" r="1.6" fill="#ffaa00" opacity="0.85"/>
+        </svg>
         <div style="font-family:'Orbitron',sans-serif;font-size:13px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(255,100,100,.5)">SHADOW FIGHTER 2</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#ff6464;opacity:0.7">SEQUEL</div>
       </div>
       <div class="eco-card-body">
-        <div class="eco-card-kicker" style="color:#ff6464">ACTION · COMBAT</div>
+        <div class="eco-card-kicker" style="color:#ff6464">SEQUEL · REMAKE</div>
         <div class="eco-card-title">SHADOW FIGHTER 2</div>
-        <div class="eco-card-desc">Enhanced sequel with new mechanics, story arcs and cross-game integration with the OASIS ecosystem.</div>
-        <a href="#" class="eco-card-link" style="color:#ff6464;border-color:rgba(255,100,100,.3)" target="_blank" rel="noopener">PLAY →</a>
+        <div class="eco-card-desc">The long-planned sequel reimagined as a modern remake of the classic. Enhanced with new mechanics, deeper story and fully plugged into OASIS via <a href="https://ogengine.oasisomniverse.one" style="color:#ff6464" target="_blank">OGEngine</a> for seamless ecosystem integration.</div>
+        <a href="#" class="eco-card-link" style="color:#ff6464;border-color:rgba(255,100,100,.3)" target="_blank" rel="noopener">COMING SOON →</a>
       </div>
     </div>
     <div class="eco-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0f0808,#1a1010);gap:13px">
-        <div style="font-size:44px">⚔️</div>
+        <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M27,4 L31,17 L50,38 L36,33 L34,46 L40,51 L27,46 L14,51 L20,46 L18,33 L4,38 L23,17 Z" stroke="#ff6464" stroke-width="1.3" fill="rgba(255,100,100,.14)" stroke-linejoin="round"/>
+          <ellipse cx="27" cy="15" rx="2.4" ry="4.5" fill="#ff6464" opacity="0.55"/>
+          <line x1="27" y1="19" x2="27" y2="40" stroke="#ff6464" stroke-width="0.6" opacity="0.4"/>
+          <circle cx="20" cy="46" r="1.6" fill="#ffaa00" opacity="0.85"/>
+          <circle cx="34" cy="46" r="1.6" fill="#ffaa00" opacity="0.85"/>
+        </svg>
         <div style="font-family:'Orbitron',sans-serif;font-size:13px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(255,100,100,.5)">SHADOW FIGHTER 3D</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#ff6464;opacity:0.7">3D ACTION</div>
       </div>
       <div class="eco-card-body">
-        <div class="eco-card-kicker" style="color:#ff6464">3D ACTION · COMBAT</div>
+        <div class="eco-card-kicker" style="color:#ff6464">3D · NEXT GENERATION</div>
         <div class="eco-card-title">SHADOW FIGHTER 3D</div>
-        <div class="eco-card-desc">Full 3D evolution of the Shadow Fighter series with immersive combat and deep OASIS integration.</div>
-        <a href="#" class="eco-card-link" style="color:#ff6464;border-color:rgba(255,100,100,.3)" target="_blank" rel="noopener">PLAY →</a>
+        <div class="eco-card-desc">The third re-installment of the legendary series, fully reimagined in stunning 3D. A next-generation evolution bringing the classic shoot em up experience into a new dimension via <a href="https://ogengine.oasisomniverse.one" style="color:#ff6464" target="_blank">OGEngine</a> and OASIS.</div>
+        <a href="#" class="eco-card-link" style="color:#ff6464;border-color:rgba(255,100,100,.3)" target="_blank" rel="noopener">COMING SOON →</a>
       </div>
     </div>
     <div class="eco-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a0810,#15101a);gap:13px">
-        <div style="font-size:44px">🕰️</div>
+        <svg width="48" height="48" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16,8 L38,8 C38,16 30,20 27,23 C24,20 16,16 16,8 Z" stroke="#6464c8" stroke-width="1.2" fill="rgba(100,100,200,.1)"/>
+          <path d="M16,46 L38,46 C38,38 30,34 27,31 C24,34 16,38 16,46 Z" stroke="#6464c8" stroke-width="1.2" fill="rgba(100,100,200,.1)"/>
+          <line x1="14" y1="8" x2="40" y2="8" stroke="#6464c8" stroke-width="1.4"/>
+          <line x1="14" y1="46" x2="40" y2="46" stroke="#6464c8" stroke-width="1.4"/>
+          <circle cx="27" cy="27" r="1.4" fill="#6464c8" opacity="0.8"/>
+        </svg>
         <div style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(100,100,200,.5)">MEMORY LANE</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#6464c8;opacity:0.7">MEMORIES</div>
       </div>
@@ -1767,20 +1848,67 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
         <div class="eco-card-kicker" style="color:#6464c8">NOSTALGIA · CURATION</div>
         <div class="eco-card-title">MEMORY LANE</div>
         <div class="eco-card-desc">Curate and preserve your memories in an interactive timeline — share moments across the OASIS ecosystem.</div>
-        <a href="#" class="eco-card-link" style="color:#6464c8;border-color:rgba(100,100,200,.3)" target="_blank" rel="noopener">REMEMBER →</a>
+        <a href="#" class="eco-card-link" style="color:#6464c8;border-color:rgba(100,100,200,.3)" target="_blank" rel="noopener">COMING SOON →</a>
       </div>
     </div>
     <div class="eco-card">
       <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a080a,#15101515);gap:13px">
-        <div style="font-size:44px">🎵</div>
+        <svg width="48" height="48" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10,22 L18,22 L26,14 L26,40 L18,32 L10,32 Z" stroke="#c864c8" stroke-width="1.2" fill="rgba(200,100,200,.14)"/>
+          <path d="M32,20 C35,23 35,31 32,34" stroke="#c864c8" stroke-width="1.2" opacity="0.7" fill="none"/>
+          <path d="M37,15 C43,21 43,33 37,39" stroke="#c864c8" stroke-width="1.2" opacity="0.5" fill="none"/>
+          <path d="M42,10 C50,19 50,35 42,44" stroke="#c864c8" stroke-width="1.2" opacity="0.35" fill="none"/>
+        </svg>
         <div style="font-family:'Orbitron',sans-serif;font-size:13px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(200,100,200,.5)">WHAT'S THAT SOUND</div>
         <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#c864c8;opacity:0.7">GAME</div>
       </div>
       <div class="eco-card-body">
-        <div class="eco-card-kicker" style="color:#c864c8">AUDIO · RECOGNITION</div>
+        <div class="eco-card-kicker" style="color:#c864c8">AUDIO · GAME</div>
         <div class="eco-card-title">WHAT'S THAT SOUND</div>
-        <div class="eco-card-desc">Audio recognition and guessing game that challenges your listening skills and music knowledge.</div>
-        <a href="#" class="eco-card-link" style="color:#c864c8;border-color:rgba(200,100,200,.3)" target="_blank" rel="noopener">LISTEN →</a>
+        <div class="eco-card-desc">Audio recognition and guessing game that challenges your listening skills and music knowledge. Built on <a href="https://ogengine.oasisomniverse.one" style="color:#c864c8" target="_blank">OGEngine</a> for integrated OASIS gameplay.</div>
+        <a href="#" class="eco-card-link" style="color:#c864c8;border-color:rgba(200,100,200,.3)" target="_blank" rel="noopener">COMING SOON →</a>
+      </div>
+    </div>
+    <div class="eco-card">
+      <div style="width:100%;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#060a10,#0c1420);gap:13px">
+        <svg width="48" height="48" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="27" cy="27" r="20" stroke="#00e5ff" stroke-width="1.2" stroke-dasharray="4 5" opacity="0.6"/>
+          <line x1="27" y1="17" x2="27" y2="37" stroke="#00e5ff" stroke-width="1.6"/>
+          <line x1="17" y1="27" x2="37" y2="27" stroke="#00e5ff" stroke-width="1.6"/>
+        </svg>
+        <div style="font-family:'Orbitron',sans-serif;font-size:14px;font-weight:900;letter-spacing:0.15em;color:#fff;text-shadow:0 0 18px rgba(0,229,255,.5)">MORE COMING SOON</div>
+        <div style="font-family:'Share Tech Mono',monospace;font-size:9px;letter-spacing:0.28em;color:#00e5ff;opacity:0.7">EXPANDING ECOSYSTEM</div>
+      </div>
+      <div class="eco-card-body">
+        <div class="eco-card-kicker">EVER GROWING · OAPPS</div>
+        <div class="eco-card-title">MORE COMING SOON</div>
+        <div class="eco-card-desc">The OASIS ecosystem is always expanding. New OAPPs, games and experiences are being built and integrated all the time — this is just the beginning.</div>
+        <a href="#" class="eco-card-link" target="_blank" rel="noopener">STAY TUNED →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BUILD WITH OASIS ── -->
+<section class="section" style="background:radial-gradient(ellipse 60% 40% at 50% 50%,rgba(0,229,255,.03) 0%,transparent 70%)">
+  <div class="section-kicker">BUILD WITH OASIS</div>
+  <h2 class="section-title">BRING YOUR IDEAS TO LIFE</h2>
+  <span class="section-line"></span>
+  <div class="protocol-grid" style="max-width:1060px;margin:0 auto">
+    <div class="protocol-panel">
+      <div class="protocol-kicker">FOR DEVELOPERS</div>
+      <div class="protocol-heading">Want to build an OAPP?</div>
+      <div class="protocol-copy">Use the <strong>STAR ODK</strong> — the complete Web5 developer toolkit for building, running and publishing OAPPs across 40+ providers with zero rewrites. CLI, API and full documentation included.</div>
+      <a href="https://star.oasisomniverse.one" class="btn-secondary" target="_blank" rel="noopener">EXPLORE STAR ODK →</a>
+    </div>
+    <div class="protocol-panel">
+      <div class="protocol-kicker">FOR EVERYONE ELSE</div>
+      <div class="protocol-heading">Have an idea for an OAPP?</div>
+      <div class="protocol-copy">We offer <strong>development services</strong> to help bring your ideas to life. Get in touch and let's build it together.</div>
+      <div class="btn-row">
+        <a href="https://discord.gg/q9gMKU6" class="btn-secondary" target="_blank" rel="noopener">DISCORD →</a>
+        <a href="https://t.me/oasisweb4chat" class="btn-secondary" target="_blank" rel="noopener">TELEGRAM →</a>
+        <a href="https://tally.so/r/WOZjNa" class="btn-secondary" target="_blank" rel="noopener">CONTACT SUPPORT →</a>
       </div>
     </div>
   </div>
@@ -2406,6 +2534,12 @@ weapon.MetaData[<span style="color:#00cc88">"Damage"</span>] = <span style="colo
         <li><a href="https://github.com/NextGenSoftwareUK/OASIS" target="_blank" rel="noopener">GitHub</a></li>
         <li><a href="https://github.com/NextGenSoftwareUK/OASIS/tree/master/Docs/Devs/API%20Documentation" target="_blank">API Reference</a></li>
         <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/Devs/DEVELOPER_DOCUMENTATION_INDEX.md" target="_blank">Developer Index</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/Devs/OASIS_Quick_Start_Guide.md" target="_blank" rel="noopener">Quick Start Guide</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/Devs/OASIS_ARCHITECTURE_OVERVIEW.md" target="_blank" rel="noopener">Architecture Overview</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/Devs/DEVELOPMENT_ENVIRONMENT_SETUP.md" target="_blank" rel="noopener">Environment Setup</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/Devs/OASIS-BEST-PRACTICES.md" target="_blank" rel="noopener">Best Practices</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/Devs/DOCKER_DEPLOYMENT_GUIDE.md" target="_blank" rel="noopener">Docker Deployment Guide</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/releases/tag/OASIS-Runtime-v4.5.1" target="_blank" rel="noopener">OASIS Runtime v4.5.1</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -2420,6 +2554,12 @@ weapon.MetaData[<span style="color:#00cc88">"Damage"</span>] = <span style="colo
         <li><a href="https://www.oasisweb4.com/holonic-architecture" target="_blank" rel="noopener">Holonic Architecture</a></li>
         <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/Devs/WIKI_DOCUMENTATION_INDEX.md" target="_blank">Wiki</a></li>
         <li><a href="https://www.ourworldthegame.com/blog" target="_blank" rel="noopener">Blog</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/OASIS_Lite_Paper.md" target="_blank" rel="noopener">OASIS Lite Paper</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/OASIS_HYPERDRIVE_WHITEPAPER.md" target="_blank" rel="noopener">HyperDrive Whitepaper</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/OASIS_COSMIC_ORM_WHITEPAPER.md" target="_blank" rel="noopener">Cosmic ORM Whitepaper</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/OASIS_NFT_SYSTEM_WHITEPAPER.md" target="_blank" rel="noopener">NFT System Whitepaper</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/OASIS_UNIVERSAL_WALLET_WHITEPAPER.md" target="_blank" rel="noopener">Universal Wallet Whitepaper</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/OASIS_TECHNOLOGY_SUMMARY_AND_USE_CASES.md" target="_blank" rel="noopener">Use Cases</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -2436,9 +2576,9 @@ weapon.MetaData[<span style="color:#00cc88">"Damage"</span>] = <span style="colo
       <ul>
         <li><a href="https://discord.gg/q9gMKU6" target="_blank" rel="noopener">Discord</a></li>
         <li><a href="https://t.me/oasisweb4chat" target="_blank" rel="noopener">Telegram</a></li>
-        <li><a href="https://x.com/OASISWEB4" target="_blank" rel="noopener">𝕏 OASIS WEB4</a></li>
-        <li><a href="https://x.com/OurWorldTheGame" target="_blank" rel="noopener">𝕏 Our World</a></li>
-        <li><a href="https://x.com/HoloNET_OASIS" target="_blank" rel="noopener">𝕏 HoloNET</a></li>
+        <li><a href="https://x.com/OASISWEB4" target="_blank" rel="noopener">X OASIS WEB4</a></li>
+        <li><a href="https://x.com/OurWorldTheGame" target="_blank" rel="noopener">X Our World</a></li>
+        <li><a href="https://x.com/HoloNET_OASIS" target="_blank" rel="noopener">X HoloNET</a></li>
         <li><a href="https://www.youtube.com/@WEB4OASIS" target="_blank" rel="noopener">YouTube OASIS</a></li>
         <li><a href="https://www.youtube.com/@ourworld-the-game" target="_blank" rel="noopener">YouTube Our World</a></li>
         <li><a href="https://www.youtube.com/channel/UC0_O4RwdY3lq1m3-K-njUxA" target="_blank" rel="noopener">YouTube Our World Legacy</a></li>
@@ -2451,6 +2591,8 @@ weapon.MetaData[<span style="color:#00cc88">"Damage"</span>] = <span style="colo
           <li><a href="https://github.com/NextGenSoftwareUK/OASIS/issues" target="_blank" rel="noopener">Report an Issue</a></li>
           <li><a href="https://github.com/NextGenSoftwareUK/OASIS/discussions" target="_blank" rel="noopener">Discussions</a></li>
           <li><a href="https://tally.so/r/WOZjNa" target="_blank" rel="noopener">Submit a Support Ticket</a></li>
+          <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/Devs/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a></li>
+          <li><a href="https://github.com/NextGenSoftwareUK/OASIS/blob/master/Docs/Devs/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">Code of Conduct</a></li>
           <!-- <li><a href="mailto:enquiries@nextgenworld.co.uk">Contact</a></li> -->
           <!-- <li><a href="https://www.nextgenworld.co.uk/" target="_blank" rel="noopener">NextGen Software</a></li> -->
         </ul>
