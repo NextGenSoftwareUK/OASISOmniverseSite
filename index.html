@@ -274,8 +274,19 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
   .hero-btns{flex-direction:column;align-items:center}
   .founders-band{padding:40px 24px}
   .footer-cols{gap:24px}
-  .ecosystem-grid,.features-grid,.download-grid{grid-template-columns:1fr !important;gap:16px}
-  .eco-card{min-width:0}
+  .ecosystem-grid,.features-grid,.download-grid{
+    grid-template-columns:1fr !important;
+    gap:16px;
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    justify-content:stretch;
+  }
+  .eco-card,.feature-item,.download-card{
+    min-width:0;
+    width:100%;
+    box-sizing:border-box;
+  }
   .eco-card-body{padding:16px 13px}
   .eco-card-title{font-size:14px;line-height:1.12;letter-spacing:.05em}
   .eco-card-desc{font-size:13px;line-height:1.5}
@@ -305,7 +316,13 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
   .stats-band{grid-template-columns:1fr 1fr}
   .section-title{font-size:clamp(18px,7vw,28px);letter-spacing:.06em}
   .section-sub{font-size:14px;line-height:1.65;margin-bottom:32px}
-  .ecosystem-grid,.features-grid,.download-grid{grid-template-columns:1fr !important;gap:12px}
+  .ecosystem-grid,.features-grid,.download-grid{
+    grid-template-columns:1fr !important;
+    gap:12px;
+    width:100%;
+    max-width:100%;
+    min-width:0;
+  }
   .eco-card{border-radius:14px}
   .eco-card-body{padding:14px 12px}
   .eco-card-title{font-size:13px;line-height:1.1}
@@ -315,6 +332,9 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
   .feature-title{font-size:14px}
   .feature-desc{font-size:13px;line-height:1.5}
   .download-card{padding:14px 12px}
+  .section,.section-inner{padding-left:16px;padding-right:16px}
+  .hero,.hero-inner,.section-sub{max-width:100%}
+  .feature-item,.eco-card,.download-card{overflow-wrap:anywhere}
   .footer{padding:34px 14px 24px}
   .footer-logo{font-size:16px;letter-spacing:.1em}
   .footer-tagline{font-size:11px;line-height:1.5;margin-bottom:22px}
