@@ -31,8 +31,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);
 .nav-logo{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--cyan);text-decoration:none;display:flex;align-items:center;gap:10px}
 .nav-logo-icon{width:28px;height:28px}
 .nav-logo span{color:rgba(255,255,255,.45);font-weight:400}
-.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
-.nav-links a{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:.12em;color:#a8bfd8;text-decoration:none;transition:color .2s,filter .2s}
+.nav-links{display:flex;align-items:center;gap:16px;list-style:none}
+.nav-links a{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:.08em;color:#a8bfd8;text-decoration:none;transition:color .2s,filter .2s;white-space:nowrap}
 .nav-links a:hover{color:var(--cyan);filter:drop-shadow(0 0 6px rgba(0,229,255,.6))}
 .nav-cta{font-family:'Orbitron',sans-serif!important;font-size:11px!important;font-weight:700!important;letter-spacing:.12em!important;color:var(--bg-deep)!important;background:var(--cyan);padding:9px 18px;border-radius:6px;transition:box-shadow .2s,transform .2s,filter .2s!important}
 .nav-cta:hover{box-shadow:0 0 24px rgba(0,229,255,.5);transform:translateY(-1px);filter:none!important}
@@ -265,9 +265,13 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
 .zoomable:hover{filter:brightness(1.08) drop-shadow(0 0 16px rgba(0,229,255,.25));transform:scale(1.01)}
 
 /* ── RESPONSIVE ── */
-@media(max-width:900px){
+/* Nav has 11 items - too many to fit even on many desktop screens at full size,
+   so switch to the hamburger earlier than the general content breakpoint below. */
+@media(max-width:1280px){
   .nav-links{display:none}
   .nav-hamburger{display:flex}
+}
+@media(max-width:900px){
   .img-split.img-left,.img-split.img-right{grid-template-columns:1fr}
   .img-split.img-right .img-split-text{order:-1}
   .protocol-grid{grid-template-columns:1fr}
