@@ -36,8 +36,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);
 .nav-links a:hover{color:var(--cyan);filter:drop-shadow(0 0 6px rgba(0,229,255,.6))}
 .nav-cta{font-family:'Orbitron',sans-serif!important;font-size:11px!important;font-weight:700!important;letter-spacing:.12em!important;color:var(--bg-deep)!important;background:var(--cyan);padding:9px 18px;border-radius:6px;transition:box-shadow .2s,transform .2s,filter .2s!important}
 .nav-cta:hover{box-shadow:0 0 24px rgba(0,229,255,.5);transform:translateY(-1px);filter:none!important}
-.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.nav-hamburger span{display:block;width:22px;height:2px;background:var(--cyan);border-radius:2px;transition:transform .3s}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;z-index:1000;position:relative}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--cyan);border-radius:2px;transition:transform .25s,opacity .25s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* ── ANIMATIONS ── */
 @keyframes ringPulse{0%,100%{box-shadow:0 0 30px rgba(0,229,255,.4),inset 0 0 20px rgba(0,229,255,.1)}50%{box-shadow:0 0 60px rgba(0,229,255,.7),inset 0 0 30px rgba(0,229,255,.2)}}
@@ -3042,13 +3045,16 @@ document.querySelectorAll(
 // Mobile menu
 function toggleMenu(){
   document.querySelector('.nav-links').classList.toggle('open');
+  document.querySelector('.nav-hamburger').classList.toggle('open');
 }
 
 // Close mobile menu on link click
 document.querySelectorAll('.nav-links a').forEach(a => {
   a.addEventListener('click', () => {
-    const links = document.querySelector('.nav-links');
-    if(window.innerWidth < 1280) links.classList.remove('open');
+    if(window.innerWidth < 1280){
+      document.querySelector('.nav-links').classList.remove('open');
+      document.querySelector('.nav-hamburger').classList.remove('open');
+    }
   });
 });
 
