@@ -268,7 +268,9 @@ a:hover{filter:drop-shadow(0 0 6px rgba(0,229,255,.7))}
 /* Nav has 11 items - too many to fit even on many desktop screens at full size,
    so switch to the hamburger earlier than the general content breakpoint below. */
 @media(max-width:1280px){
-  .nav-links{display:none}
+  .nav-links{display:none;gap:0}
+  nav .nav-links li{margin:0;padding:0}
+  nav .nav-links a{display:block;padding:.55rem 1.25rem;font-size:.88rem;text-align:left;border-bottom:1px solid rgba(0,229,255,.08)}
   .nav-hamburger{display:flex}
 }
 @media(max-width:900px){
@@ -3034,7 +3036,7 @@ function toggleMenu(){
   if(links.style.display === 'flex'){
     links.style.display = 'none';
   } else {
-    links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:62px;left:0;right:0;background:rgba(3,7,20,.97);padding:20px 28px;gap:18px;border-bottom:1px solid rgba(0,229,255,.1)';
+    links.style.cssText = 'display:flex;flex-direction:column;align-items:stretch;position:absolute;top:62px;left:0;right:0;background:rgba(3,7,20,.97);padding:0;gap:0;border-bottom:1px solid rgba(0,229,255,.1);z-index:999';
   }
 }
 
