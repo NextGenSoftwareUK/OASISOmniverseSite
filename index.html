@@ -26,8 +26,16 @@ body{background:var(--bg-deep);color:var(--text);font-family:'Rajdhani',sans-ser
 body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.08) 2px,rgba(0,0,0,.08) 4px);pointer-events:none;z-index:1}
 .wrap{position:relative;z-index:2}
 
+/* ── LEARN BANNER ── */
+.learn-banner{position:fixed;top:0;left:0;right:0;z-index:101;background:linear-gradient(90deg,rgba(0,229,255,.06),rgba(0,229,255,.13),rgba(0,229,255,.06));border-bottom:1px solid rgba(0,229,255,.2);padding:9px 20px;text-align:center;display:flex;align-items:center;justify-content:center;gap:12px;backdrop-filter:blur(8px)}
+.learn-banner__text{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.08em;color:#a8bfd8}
+.learn-banner__link{font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--cyan);text-decoration:none;border:1px solid rgba(0,229,255,.35);border-radius:999px;padding:4px 14px;transition:background .2s,border-color .2s,box-shadow .2s;white-space:nowrap}
+.learn-banner__link:hover{background:rgba(0,229,255,.1);border-color:rgba(0,229,255,.6);box-shadow:0 0 16px rgba(0,229,255,.4)}
+.learn-banner__close{background:none;border:none;color:#6a80a8;cursor:pointer;font-size:14px;line-height:1;padding:2px 4px;margin-left:8px;transition:color .2s}
+.learn-banner__close:hover{color:var(--cyan)}
+
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,229,255,.1);padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between}
+nav{position:fixed;top:38px;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,229,255,.1);padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between}
 .oasis-arrow{display:inline-block;font-style:normal;line-height:1;vertical-align:-.05em;font-size:1em}
 .hero-title .oasis-arrow{vertical-align:.18em}
 .nav-logo .oasis-arrow{color:var(--cyan);letter-spacing:0;margin:0 -.08em}
@@ -62,7 +70,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);
 .hero-bg{order:10;display:block;width:100%;max-width:860px;margin-top:40px;pointer-events:none;opacity:.8}
 
 /* ── HERO ── */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 20px 60px;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,229,255,.08) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(124,58,237,.12) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 20% 60%,rgba(0,229,255,.04) 0%,transparent 60%)}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:118px 20px 60px;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,229,255,.08) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(124,58,237,.12) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 20% 60%,rgba(0,229,255,.04) 0%,transparent 60%)}
 .logo-ring{width:100px;height:100px;border-radius:50%;border:2px solid var(--cyan);margin-bottom:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(0,229,255,.4),inset 0 0 20px rgba(0,229,255,.1);animation:ringPulse 3s ease-in-out infinite,float 6s ease-in-out infinite;position:relative}
 .logo-ring::before{content:'';position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(0,229,255,.2);animation:ringPulse 3s ease-in-out infinite reverse}
 .logo-ring svg{width:58px;height:58px}
@@ -463,6 +471,12 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
 </style>
 </head>
 <body>
+<div class="learn-banner" id="learnBanner">
+  <span class="learn-banner__text">New to OASIS? Discover what we're building and why it matters.</span>
+  <a href="https://founders.oasisomniverse.one/learn.html" target="_blank" rel="noopener" class="learn-banner__link">Learn about OASIS →</a>
+  <button class="learn-banner__close" onclick="document.getElementById('learnBanner').style.display='none';document.querySelector('nav').style.top='0';document.querySelector('.hero').style.paddingTop='80px'" aria-label="Dismiss">✕</button>
+</div>
+
 <canvas id="stars-canvas"></canvas>
 <div class="wrap">
 
