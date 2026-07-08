@@ -33,6 +33,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .learn-banner__link:hover{background:rgba(0,229,255,.1);border-color:rgba(0,229,255,.6);box-shadow:0 0 16px rgba(0,229,255,.4)}
 .learn-banner__close{background:none;border:none;color:#6a80a8;cursor:pointer;font-size:14px;line-height:1;padding:2px 4px;margin-left:8px;transition:color .2s}
 .learn-banner__close:hover{color:var(--cyan)}
+@media(max-width:600px){.learn-banner__text{display:none}}
 
 /* ── NAV ── */
 nav{position:fixed;top:38px;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,229,255,.1);padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between}
