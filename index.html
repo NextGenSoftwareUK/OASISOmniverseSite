@@ -38,7 +38,8 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,229,255,.1);padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between}
 .oasis-arrow{display:inline-block;font-style:normal;line-height:1;vertical-align:-.05em;font-size:1em}
-.hero-title .oasis-arrow{vertical-align:.18em}
+.hero-title .oasis-arrow{vertical-align:-.05em;animation:ascend 2.4s ease-in-out infinite}
+@keyframes ascend{0%{transform:translateY(0)}50%{transform:translateY(-.28em)}100%{transform:translateY(0)}}
 .nav-logo .oasis-arrow{color:var(--cyan);letter-spacing:0;margin:0 -.18em}
 .nav-logo{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;letter-spacing:.18em;color:var(--cyan);text-decoration:none;display:flex;align-items:center;gap:10px}
 .nav-logo-icon{width:28px;height:28px}
