@@ -36,7 +36,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 @media(max-width:600px){.learn-banner__text{display:none}}
 
 /* ── NAV ── */
-nav{position:fixed;top:38px;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,229,255,.1);padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(3,7,20,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(0,229,255,.1);padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between}
 .oasis-arrow{display:inline-block;font-style:normal;line-height:1;vertical-align:-.05em;font-size:1em}
 .hero-title .oasis-arrow{vertical-align:.18em}
 .nav-logo .oasis-arrow{color:var(--cyan);letter-spacing:0;margin:0 -.18em}
@@ -71,7 +71,7 @@ nav{position:fixed;top:38px;left:0;right:0;z-index:100;background:rgba(3,7,20,.8
 .hero-bg{order:10;display:block;width:100%;max-width:860px;margin-top:40px;pointer-events:none;opacity:.8}
 
 /* ── HERO ── */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:118px 20px 60px;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,229,255,.08) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(124,58,237,.12) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 20% 60%,rgba(0,229,255,.04) 0%,transparent 60%)}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 20px 60px;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,229,255,.08) 0%,transparent 70%),radial-gradient(ellipse 60% 40% at 80% 80%,rgba(124,58,237,.12) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 20% 60%,rgba(0,229,255,.04) 0%,transparent 60%)}
 .logo-ring{width:100px;height:100px;border-radius:50%;border:2px solid var(--cyan);margin-bottom:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(0,229,255,.4),inset 0 0 20px rgba(0,229,255,.1);animation:ringPulse 3s ease-in-out infinite,float 6s ease-in-out infinite;position:relative}
 .logo-ring::before{content:'';position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(0,229,255,.2);animation:ringPulse 3s ease-in-out infinite reverse}
 .logo-ring svg{width:58px;height:58px}
