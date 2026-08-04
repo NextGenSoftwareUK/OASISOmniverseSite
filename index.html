@@ -1131,14 +1131,14 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
     <div class="protocol-panel">
       <div class="protocol-kicker">ODOOM / OQUAKE / OUR WORLD</div>
       <div class="protocol-heading">OGEngine is the runtime contract that lets games share one avatar, one quest graph and one inventory.</div>
-      <p class="protocol-copy">The OASIS Omniverse docs describe OGEngine as the combined stack formed by <strong>Web4 OASIS API, Web5 STAR API and OGEngineClient</strong>. Games stay thin: they call shared <code>star_api_*</code> hooks while the client handles authentication, caching, queues, quest progress, inventory sync and NFT mint/add flows.</p>
+      <p class="protocol-copy">The OASIS Omniverse docs describe OGEngine as the combined stack formed by <strong>Web4 OASIS API, Web5 STAR API and OGEngine Client</strong>. Games stay thin: they call shared <code>ogengine_*</code> hooks while the client handles authentication, caching, queues, quest progress, inventory sync and NFT mint/add flows.</p>
       <div class="provider-group">
         <div class="provider-group-label">CONNECTED GAMES &amp; TOOLS</div>
         <div class="provider-pills">
           <span class="provider-pill">ODOOM</span>
           <span class="provider-pill">OQuake</span>
           <span class="provider-pill">Our World</span>
-          <span class="provider-pill">OGEngineClient</span>
+          <span class="provider-pill">OGEngine Client</span>
           <span class="provider-pill">STAR CLI</span>
           <span class="provider-pill">ODK Light</span>
           <span class="provider-pill">star_api_*</span>
@@ -1153,7 +1153,7 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
         <div class="protocol-point"><div class="protocol-num">01</div><div><div class="protocol-title">BEAM-IN SSO</div><div class="protocol-text">Players authenticate once with their OASIS/STAR avatar, then carry profile, quest and inventory state across games.</div></div></div>
         <div class="protocol-point"><div class="protocol-num">02</div><div><div class="protocol-title">CROSS-GAME INVENTORY</div><div class="protocol-text">Keys, weapons, ammo, powerups and items can be synced through STAR and optionally minted as Web4 NFT inventory assets.</div></div></div>
         <div class="protocol-point"><div class="protocol-num">03</div><div><div class="protocol-title">QUEST HANDOFFS</div><div class="protocol-text">Objectives can point to another game, OPORTAL, STAR CLI, a website, chat, or a linked GeoHotSpot in the real world.</div></div></div>
-        <div class="protocol-point"><div class="protocol-num">04</div><div><div class="protocol-title">PORTABLE GAME HOOKS</div><div class="protocol-text">Future ports only need small gameplay hooks while OGEngineClient keeps API work, queues and cache logic reusable.</div></div></div>
+        <div class="protocol-point"><div class="protocol-num">04</div><div><div class="protocol-title">PORTABLE GAME HOOKS</div><div class="protocol-text">Future ports only need small gameplay hooks while OGEngine Client keeps API work, queues and cache logic reusable.</div></div></div>
       </div>
     </div>
   </div>
@@ -1161,8 +1161,8 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
     <img src="img/ogengine.jpg" alt="OGEngine — Omniverse Game Runtime" loading="lazy" class="zoomable" onclick="openLightbox('img/ogengine.jpg')">
     <div class="img-split-text" style="display:flex;flex-direction:column;justify-content:space-between;gap:20px">
       <p>OGEngine is the runtime that <strong>connects every OASIS world into a single interoperable omniverse</strong>. It provides shared state, inventory management, quest handling and karma propagation across all connected games and metaverses in real-time.</p>
-      <p>Under the hood, OGEngine is the combined stack of <strong>OGEngineClient + Web4 OASIS API + Web5 STAR API</strong>. Games stay thin — they call shared <code>star_api_*</code> hooks while the client handles authentication, caching, queues, quest progress, inventory sync and NFT mint/add flows automatically.</p>
-      <p>Build your own world, connect it to shared STAR quests, and give players real reasons to stay engaged across the whole ecosystem — not just one game. Future ports only need small gameplay hooks; the heavy lifting stays in the reusable OGEngineClient layer.</p>
+      <p>Under the hood, OGEngine is the combined stack of <strong>OGEngine Client + Web4 OASIS API + Web5 STAR API</strong>. Games stay thin — they call shared <code>ogengine_*</code> hooks while the client handles authentication, caching, queues, quest progress, inventory sync and NFT mint/add flows automatically.</p>
+      <p>Build your own world, connect it to shared STAR quests, and give players real reasons to stay engaged across the whole ecosystem — not just one game. Future ports only need small gameplay hooks; the heavy lifting stays in the reusable OGEngine Client layer.</p>
       <p>GeoHotSpot triggers allow quests and objectives to be anchored to real-world locations, blending AR/VR experiences with physical space. AI agents and intelligent NPCs can respond to cross-game state, karma and inventory — creating living worlds that evolve as players move between them.</p>
       <div class="pill-row">
         <a href="https://ourworld.oasisomniverse.one" class="pill cyan" target="_blank" rel="noopener">Our World</a>
@@ -2506,7 +2506,7 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
   <div class="section-kicker">FOR DEVELOPERS</div>
   <h2 class="section-title">BUILD ON THE OMNIVERSE</h2>
   <span class="section-line"></span>
-  <p class="section-sub">Everything you need to connect your application, game or metaverse to the OASIS layer — REST APIs, STAR CLI/ODK, OGEngineClient, HoloNET, NuGet packages, Postman collections, full documentation and an active open-source community.</p>
+  <p class="section-sub">Everything you need to connect your application, game or metaverse to the OASIS layer — REST APIs, STAR CLI/ODK, OGEngine Client, HoloNET, NuGet packages, Postman collections, full documentation and an active open-source community.</p>
   <div class="features-grid" style="max-width:960px">
     <div class="feature-item">
       <span class="feature-icon">🔌</span>
@@ -2534,7 +2534,7 @@ a:hover{filter:drop-shadow(0 0 8px rgba(0,229,255,1)) drop-shadow(0 0 20px rgba(
     </div>
     <div class="feature-item">
       <span class="feature-icon">🔗</span>
-      <div class="feature-title">OGEngineClient</div>
+      <div class="feature-title">OGEngine Client</div>
       <div class="feature-desc">C#, C &amp; C++ client powering ODOOM and OQuake — Avatar SSO, shared inventory, cross-game quests, NFT minting (weapons, armor, health, powerups, kills), send to clan/avatar, caching, batching and multithreading. The foundation of OGEngine.</div>
       <a href="https://github.com/NextGenSoftwareUK/OASIS/releases/tag/STAR-API-CLIENT-v1.0.0" class="feature-link" target="_blank" rel="noopener">DOWNLOAD CLIENT →</a>
     </div>
@@ -2748,7 +2748,7 @@ weapon.MetaData[<span style="color:#00cc88">"Damage"</span>] = <span style="colo
       <ul class="download-list">
         <li><a href="https://github.com/NextGenSoftwareUK/OASIS/releases/tag/STAR-ODK-Runtime-v3.5.0" target="_blank">⬇️ STAR CLI / ODK Runtime v3.5.0</a></li>
         <li><a href="https://github.com/NextGenSoftwareUK/OASIS/releases/tag/OASIS-Runtime-v4.5.1" target="_blank">⬇️ OASIS Runtime v4.5.1</a></li>
-        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/releases/tag/STAR-API-CLIENT-v1.0.0" target="_blank">⬇️ OGEngineClient v1.0.0</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/releases/tag/STAR-API-CLIENT-v1.0.0" target="_blank">⬇️ OGEngine Client v1.0.0</a></li>
         <li><a href="https://github.com/NextGenSoftwareUK/IDE/releases" target="_blank">⬇️ OASIS IDE v1.0.0 <span style="font-size:10px;color:#FFA500">ALPHA</span></a></li>
         <li><a href="https://github.com/NextGenSoftwareUK/OASIS/releases" target="_blank">⬇️ ONODE Manager v1.0.0 <span style="font-size:10px;color:#FFA500">ALPHA</span></a></li>
         <li><a href="https://github.com/NextGenSoftwareUK/OASIS-HyperDrive-Client/releases" target="_blank">⬇️ HyperDrive Client v1.0.0 <span style="font-size:10px;color:#FFA500">ALPHA</span></a></li>
@@ -2788,7 +2788,7 @@ weapon.MetaData[<span style="color:#00cc88">"Damage"</span>] = <span style="colo
     <div class="download-card">
       <div class="download-title">WEB 5 STAR SDKS</div>
       <ul class="download-list">
-        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/tree/master/STAR%20ODK/NextGenSoftware.OASIS.STAR.WebUI/ClientApp/public/downloads/oasis-web5-star-api-client" target="_blank">⬇️ Web5 OGEngineClient</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/tree/master/STAR%20ODK/NextGenSoftware.OASIS.STAR.WebUI/ClientApp/public/downloads/oasis-web5-star-api-client" target="_blank">⬇️ Web5 OGEngine Client</a></li>
         <li><a href="https://github.com/NextGenSoftwareUK/OASIS/tree/master/STAR%20ODK/NextGenSoftware.OASIS.STAR.WebUI/ClientApp/public/downloads/oasis-web5-star-rust-sdk" target="_blank">⬇️ Web5 STAR Rust SDK</a></li>
         <li><a href="https://github.com/NextGenSoftwareUK/OASIS/tree/master/STAR%20ODK/NextGenSoftware.OASIS.STAR.WebUI/ClientApp/public/downloads/oasis-web5-star-unity-sdk" target="_blank">⬇️ Web5 STAR Unity SDK</a></li>
         <li><a href="https://github.com/NextGenSoftwareUK/OASIS/tree/master/STAR%20ODK/NextGenSoftware.OASIS.STAR.WebUI/ClientApp/public/downloads/oasis-web5-star-unreal-sdk" target="_blank">⬇️ Web5 STAR Unreal SDK</a></li>
@@ -2959,7 +2959,7 @@ weapon.MetaData[<span style="color:#00cc88">"Damage"</span>] = <span style="colo
       <span class="fm-quarter">2026 Q2</span>
     </div>
     <div class="fm-body">
-      <div class="fm-item"><i class="fm-icon">✓</i><span>Release <strong>OGEngineClient</strong></span></div>
+      <div class="fm-item"><i class="fm-icon">✓</i><span>Release <strong>OGEngine Client</strong></span></div>
       <div class="fm-item"><i class="fm-icon">✓</i><span>Release <strong>ODOOM Alpha</strong></span></div>
       <div class="fm-item"><i class="fm-icon">✓</i><span>Release <strong>ODOOM Editor Alpha</strong></span></div>
       <div class="fm-item"><i class="fm-icon">✓</i><span>Release <strong>OQUAKE Alpha</strong></span></div>
@@ -3079,7 +3079,7 @@ weapon.MetaData[<span style="color:#00cc88">"Damage"</span>] = <span style="colo
         <li><a href="https://www.nuget.org/profiles/OASISOmniverse" target="_blank" rel="noopener">NuGet (50 pkgs)</a></li>
         <li><a href="https://marketplace.visualstudio.com/items?itemName=NextGenSoftware.oasis-ide" target="_blank" rel="noopener">OASIS IDE</a></li>
         <li><a href="https://github.com/NextGenSoftwareUK/OASIS/releases/tag/STAR-ODK-Runtime-v3.5.0" target="_blank" rel="noopener">STAR CLI/ODK</a></li>
-        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/releases/tag/STAR-API-CLIENT-v1.0.0" target="_blank" rel="noopener">OGEngineClient</a></li>
+        <li><a href="https://github.com/NextGenSoftwareUK/OASIS/releases/tag/STAR-API-CLIENT-v1.0.0" target="_blank" rel="noopener">OGEngine Client</a></li>
         <li><a href="https://github.com/NextGenSoftwareUK/OASIS/releases/tag/OASIS-Runtime-v4.5.1" target="_blank" rel="noopener">OASIS Runtime v4.5.1</a></li>
       </ul>
     </div>
