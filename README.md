@@ -42,7 +42,7 @@ OASISOmniverseSite/
 - **OGEngine** — Omniverse Game Runtime detail section
 - **StarNet** — Web5 app and asset store detail section
 - **Web4: The Foundation** — Identity/Avatar, Karma, COSMIC ORM, HyperDrive, NFTs, Universal Wallet, ONODE API
-- **Technology** — 40+ provider integrations (chains, storage, identity) and protocol architecture
+- **Technology** — 222 provider integrations (chains, storage, identity) and protocol architecture
 - **Ecosystem Cards** — Links to all sub-sites
 - **Founders CTA** — Link to founders.oasisomniverse.one
 - **Developers** — Web4 API, StarNet API, STAR CLI/ODK, documentation links
